@@ -11,7 +11,8 @@ def fetch_secrets():
     db_secrets = SecretsAPI(["ss.neo4j.url",
                              "ss.neo4j.username",
                              "ss.neo4j.password",
-                             "ss.neo4j.database"])
+                             "ss.neo4j.database",
+                             "ss.portico.url"])
     secrets = db_secrets.get_secrets()
     return secrets
 

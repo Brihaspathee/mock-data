@@ -1,1 +1,6 @@
-CREATE (org:Organization{name:"Test Org", aliasName:"test alias Name"})
+CREATE (org:Organization{name:$org_name,
+            aliasName:$alias_name,
+                         description: $description, effectiveDate: $effective_date,
+                         capitated: $capitated,
+                         sourcedFrom: $sourced_from
+        })
