@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table fmg_attribute_types
+create table portown.fmg_attribute_types
 (
     id          integer not null
         constraint fmg_attribute_types_pk
@@ -8,5 +8,5 @@ create table fmg_attribute_types
     description varchar
 );
 
-alter table fmg_attribute_types
+alter table portown.fmg_attribute_types
     owner to porticoadmin;

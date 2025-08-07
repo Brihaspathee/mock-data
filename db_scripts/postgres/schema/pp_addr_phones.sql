@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_addr_phones
+create table portown.pp_addr_phones
 (
     id         integer not null
         constraint pp_addr_phones_pk
@@ -9,9 +9,9 @@ create table pp_addr_phones
             references pp_addr,
     phone_id   integer
         constraint pp_addr_phones_pp_phones_id_fk
-            references pp_phones
+            references portown.pp_phones
 );
 
-alter table pp_addr_phones
+alter table portown.pp_addr_phones
     owner to porticoadmin;
 

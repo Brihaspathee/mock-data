@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_prov_tin
+create table portown.pp_prov_tin
 (
     id   integer not null
         constraint pp_prov_tin_pk
@@ -8,6 +8,6 @@ create table pp_prov_tin
     tin  varchar not null
 );
 
-alter table pp_prov_tin
+alter table portown.pp_prov_tin
     owner to porticoadmin;
 

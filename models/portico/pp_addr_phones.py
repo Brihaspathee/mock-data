@@ -1,9 +1,9 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from base import Base
+from models.portico.base import Base
 
 class PPAddrPhones(Base):
-    __tablename__ = "PP_ADDR_PHONES"
+    __tablename__ = "pp_addr_phones"
     __table_args__ = {'schema': 'portown'}
 
     id = Column(Integer, primary_key=True)

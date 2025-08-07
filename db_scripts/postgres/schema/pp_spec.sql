@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_spec
+create table portown.pp_spec
 (
     id             integer not null
         constraint pp_spec_pk
@@ -9,5 +9,5 @@ create table pp_spec
     site_visit_req varchar not null
 );
 
-alter table pp_spec
+alter table portown.pp_spec
     owner to porticoadmin;

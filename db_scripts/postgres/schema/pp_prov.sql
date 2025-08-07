@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_prov
+create table portown.pp_prov
 (
     id           integer not null
         constraint pp_prov_pk
@@ -7,18 +7,18 @@ create table pp_prov
     name         varchar not null,
     tin_id       integer not null
         constraint pp_prov_pp_prov_tin_id_fk
-            references pp_prov_tin,
+            references portown.pp_prov_tin,
     prov_type_id integer not null
         constraint pp_prov_pp_prov_type_id_fk
-            references pp_prov_type,
+            references portown.pp_prov_type,
     address_id   integer not null
         constraint pp_prov_pp_addr_id_fk
-            references pp_addr,
+            references portown.pp_addr,
     specialty_id integer not null
         constraint pp_prov_pp_spec_id_fk
-            references pp_spec
+            references portown.pp_spec
 );
 
-alter table pp_prov
+alter table portown.pp_prov
     owner to porticoadmin;
 

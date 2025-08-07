@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey, Column, String, Integer
 from sqlalchemy.orm import relationship
-from base import Base
+from models.portico.base import Base
 
 class PPProvAddr(Base):
     __tablename__ = "pp_prov_addr"
@@ -10,5 +10,5 @@ class PPProvAddr(Base):
     prov_id = Column(Integer, ForeignKey("portown.pp_prov.id"))
     address_id = Column(Integer, ForeignKey("portown.pp_addr.id"))
 
-    provider = relationship("PPProv", back_populates="addresses")
-    address = relationship("PPProvAddr", back_populates="provider_address")
+    providers = relationship("PPProv", back_populates="addresses")
+    address = relationship("PPAddr", back_populates="provider_address")

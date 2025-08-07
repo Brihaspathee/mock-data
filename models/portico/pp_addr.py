@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Numeric, ForeignKey
 from sqlalchemy.orm import relationship
-from .base import Base
+from models.portico.base import Base
 
 class PPAddr(Base):
     __tablename__ = 'pp_addr'
@@ -20,6 +20,7 @@ class PPAddr(Base):
     start_date = Column(Date, nullable=True)
     end_date = Column(Date, nullable=True)
 
-    phones = relationship("PPAddrPhones", back_populates="address")
+
     providers = relationship("PPProv", back_populates="address")
+    phones = relationship("PPAddrPhones", back_populates="address")
     provider_address = relationship("PPProvAddr", back_populates="address")

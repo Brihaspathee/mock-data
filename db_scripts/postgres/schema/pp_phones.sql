@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_phones
+create table portown.pp_phones
 (
     id        integer not null
         constraint pp_phones_pk
@@ -10,6 +10,6 @@ create table pp_phones
     number    varchar not null
 );
 
-alter table pp_phones
+alter table portown.pp_phones
     owner to porticoadmin;
 

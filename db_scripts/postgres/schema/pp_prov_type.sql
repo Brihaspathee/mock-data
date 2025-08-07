@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table pp_prov_type
+create table portown.pp_prov_type
 (
     id       integer not null
         constraint pp_prov_type_pk
@@ -8,6 +8,6 @@ create table pp_prov_type
     category varchar not null
 );
 
-alter table pp_prov_type
+alter table portown.pp_prov_type
     owner to porticoadmin;
 

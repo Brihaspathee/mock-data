@@ -1,5 +1,5 @@
 from neo4j import Driver
-from models import Organization
+from models.aton import Organization
 
 
 class OrganizationRepository:
@@ -25,6 +25,7 @@ class OrganizationRepository:
         with self.driver.session() as session:
             result = session.run(query, org_name=organization.name,
                                  alias_name=organization.alias_name,
+                                 type=organization.type,
                                  description=organization.description,
                                  effective_date=organization.effective_date,
                                  capitated=organization.capitated,

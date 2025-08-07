@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from base import Base
+from models.portico.base import Base
 
 class PPProv(Base):
     __tablename__ = "pp_prov"
@@ -8,12 +8,12 @@ class PPProv(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    tin_id = Column(String, nullable=False, ForeignKey='portown.pp_prov_tin.id')
-    prov_type_id = Column(String, nullable=False, ForeignKey='portown.pp_prov_type.id')
-    address_id = Column(String, nullable=False, ForeignKey='portown.pp_addr.id')
-    specialty_id = Column(String, nullable=False, ForeignKey='portown.pp_spec.id')
+    tin_id = Column(String, ForeignKey('portown.pp_prov_tin.id'))
+    prov_type_id = Column(String, ForeignKey('portown.pp_prov_type.id'))
+    address_id = Column(String, ForeignKey('portown.pp_addr.id'))
+    specialty_id = Column(String, ForeignKey('portown.pp_spec.id'))
 
-    tin = relationship("PPTin", back_populates="providers")
+    tin = relationship("PPProvTIN", back_populates="providers")
     prov_type = relationship("PPProvType", back_populates="providers")
     address = relationship("PPAddr", back_populates="providers")
     specialty = relationship("PPSpec", back_populates="providers")

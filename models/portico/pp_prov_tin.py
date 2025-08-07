@@ -1,10 +1,10 @@
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
-from base import Base
+from models.portico.base import Base
 
 class PPProvTIN(Base):
 
-    __tablename__ = "pp_prov"
+    __tablename__ = "pp_prov_tin"
     __table_args__ = {'schema': 'portown'}
 
     id = Column(Integer, primary_key=True)

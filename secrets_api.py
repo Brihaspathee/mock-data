@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def define_env():
-    load_dotenv(".env.secrets")
+    load_dotenv(".env.secrets.aws")
 
 def fetch_secrets():
     db_secrets = SecretsAPI(["ss.neo4j.url",

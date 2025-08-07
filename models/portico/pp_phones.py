@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from base import Base
+from models.portico.base import Base
 
-class PP_PHONES(Base):
+class PPPhones(Base):
 
     __tablename__ = "pp_phones"
     __table_args__ = {'schema': 'portown'}
@@ -13,4 +13,4 @@ class PP_PHONES(Base):
     exchange = Column(String, nullable=False)
     number = Column(String, nullable=False)
 
-    addresses = relationship('PP_ADDR_PHONES', back_populates='phone')
+    addresses = relationship('PPAddrPhones', back_populates='phone')
