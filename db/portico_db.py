@@ -1,20 +1,23 @@
+from neo4j import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from secrets_api import fetch_secrets, define_env
+# from secrets_api import fetch_secrets, define_env
+from config import settings
 
 class PorticoDB:
 
     def __init__(self):
-        self.SessionLocal = None
+        self.SessionLocal: scoped_session[Session] | None = None
         self.engine = None
         self.db_url = None
 
     def connect(self):
-        define_env()
-        secrets = fetch_secrets()
-        print(secrets)
-        self.db_url = secrets["ss.portico.url"]
-
+        # define_env()
+        # secrets = fetch_secrets()
+        # print(secrets)
+        # self.db_url = secrets["ss.portico.url"]
+        self.db_url = settings.POSTGRES["db_url"]
+        print(self.db_url)
         if not self.db_url:
             raise ValueError("Portico DB URL not defined")
 

@@ -4,3 +4,4 @@ CREATE (org:Organization{name:$org_name,
                          capitated: $capitated,
                          sourcedFrom: $sourced_from
         })
+RETURN org

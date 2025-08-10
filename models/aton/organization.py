@@ -1,5 +1,7 @@
 from neo4j.time import Date
 
+from models.aton.identifier import Identifier
+
 
 class Organization:
     """
@@ -23,11 +25,14 @@ class Organization:
     :type capitated: bool
     """
     def __init__(self, name: str,
-                 alias_name: str, description: str,
-                 type: str,
+                 alias_name: str=None, description: str=None,
+                 type: str=None,
                  capitated: bool = False,
                  effective_date: Date = None,
-                 sourced_from: str = None):
+                 sourced_from: str = None,
+                 identifiers=None):
+        if identifiers is None:
+            self.identifiers = []
         self.element_id = ""
         self.name = name
         self.alias_name = alias_name
