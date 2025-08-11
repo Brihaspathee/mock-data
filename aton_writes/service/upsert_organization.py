@@ -10,7 +10,7 @@ def create_organization(organization:Organization):
     org_repo: OrganizationRepository = aton_graph.get_org_repo()
     org_node = org_repo.create_organization(organization)
     for identifier in organization.identifiers:
-        print(f"identifier: {identifier.identifierType} - {identifier.value}")
+        print(f"identifier: {identifier.identifier_type} - {identifier.value}")
         identifier_repo: IdentifierRepository = aton_graph.get_identifier_repo()
         identifier_node = identifier_repo.create_identifier(org_node, identifier)
     return organization

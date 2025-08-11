@@ -19,3 +19,5 @@ class PPProv(Base):
     specialty = relationship("PPSpec", back_populates="providers")
 
     addresses = relationship("PPProvAddr", back_populates="providers")
+
+    attributes = relationship("PPProvAttrib", back_populates="provider")

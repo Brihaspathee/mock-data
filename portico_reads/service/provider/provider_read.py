@@ -1,8 +1,10 @@
 from sqlalchemy.orm import joinedload, Session
 
 from db import PorticoDB
-from models.portico import PPProv, PPAddr, PPProvAddr, PPAddrPhones
+from models.portico import PPProv, PPAddr, PPProvAddr, PPAddrPhones, PPProvAttribValues, PPProvTIN
 from typing import cast
+
+from models.portico.pp_prov_attrib import PPProvAttrib
 
 """
 This module contains the ProviderRead class, which is responsible for reading provider data from the database.
@@ -64,7 +66,10 @@ class ProviderRead:
                         .joinedload(PPProvAddr.address)
                         .joinedload(PPAddr.phones)
                         .joinedload(PPAddrPhones.phone),
-                    joinedload(PPProv.prov_type)
+                    joinedload(PPProv.prov_type),
+                    joinedload(PPProv.tin),
+                    joinedload(PPProv.attributes).joinedload(PPProvAttrib.attribute_type),
+                    joinedload(PPProv.attributes).joinedload(PPProvAttrib.values).joinedload(PPProvAttribValues.field)
                 )
                 .all()
             )
