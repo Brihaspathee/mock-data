@@ -19,9 +19,11 @@ def log_provider(provider: PPProv):
             print(phone.phone.type)
             print(phone.phone.number)
     for attribute in provider.attributes:
+        print(f"Provider Attribute:{attribute.attribute_type}")
         print(attribute)
         print(attribute.attribute_type)
         for value in attribute.values:
             print(value)
             print(value.field)
             print(value.value)
+            print(value.value_date)
