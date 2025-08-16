@@ -1,0 +1,2 @@
+2025-08-16 11:38:31,022 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 11:38:31,620 [ERROR] neo4j.pool: Unable to retrieve routing information

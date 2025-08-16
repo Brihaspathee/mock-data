@@ -1,7 +1,8 @@
 from neo4j.time import DateType
 
 from db import DBUtils
-from models.portico import PPProv
+from models.aton.qualification import Qualification
+from models.portico import PPProv, PPProvAttrib
 from models.aton import Organization, Identifier
 from aton_writes.service import upsert_organization
 from utils.log_provider import log_provider
@@ -64,3 +65,34 @@ def getTIN(provider:PPProv):
                                  legal_name=provider.tin.name,
                                  sourced_from="Mock Data")
     return tin
+
+def getProviderAttributes(provider:PPProv):
+    print("Getting Provider Attributes")
+    for attribute in provider.attributes:
+        print(attribute.attribute_id)
+        if attribute.attribute_id == 102:
+            if canLoadQualification(attribute):
+                type: str  = "AASM Certification"
+                start_date: DateType | None = ""
+                end_date: DateType | None = None
+                for value in attribute.values:
+                    if value.field_id == 1006:
+                        start_date = value.value_date
+                    if value.field_id == 1007:
+                        end_date = value.value_date
+                qualification: Qualification = Qualification(qualification_type=type,
+                                                             start_date=start_date,
+                                                              end_date=end_date,
+                                                             secondary_labels=["Certification"])
+
+
+def canLoadQualification(pprovAttribute:PPProvAttrib) -> bool:
+    print("Checking if can load qualification")
+    print("Attribute ID: ", pprovAttribute.attribute_id)
+    for value in pprovAttribute.values:
+        print("Field ID: ", value.field_id)
+        print("Value: ", value.value)
+        if value.field_id == 1005 and value.value == "YES":
+            print("Found field 1005 with value YES")
+            return True
+    return False

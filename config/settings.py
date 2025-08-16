@@ -2,9 +2,17 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from config.secrets_api import SecretsAPI
+import logging
+from config import aton_logging
+
+aton_logging.setup_logging()
+log = logging.getLogger(__name__)
+
+
 
 def fetch_secrets():
-    print("Fetching Secrets")
+    log.info("Fetching Secrets using log")
+    print("Fetching Secrets using log")
     db_secrets = SecretsAPI(["ss.neo4j.url",
                              "ss.neo4j.username",
                              "ss.neo4j.password",
