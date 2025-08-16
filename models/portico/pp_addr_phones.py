@@ -3,6 +3,26 @@ from sqlalchemy.orm import relationship
 from models.portico.base import Base
 
 class PPAddrPhones(Base):
+    """
+    Represents the association between addresses and phones in the
+    database.
+
+    This class is used to model the many-to-many relationship between
+    the `PPAddr` and `PPPhones` tables through a join table. It stores
+    the mapping of address IDs to phone IDs, allowing the retrieval of
+    associated phone numbers for a specific address and vice versa.
+
+    :ivar id: The primary key of the association table.
+    :type id: int
+    :ivar address_id: The foreign key referencing the `PPAddr` table.
+    :type address_id: int
+    :ivar phone_id: The foreign key referencing the `PPPhones` table.
+    :type phone_id: int
+    :ivar address: The relationship to the `PPAddr` model.
+    :type address: PPAddr
+    :ivar phone: The relationship to the `PPPhones` model.
+    :type phone: PPPhones
+    """
     __tablename__ = "pp_addr_phones"
     __table_args__ = {'schema': 'portown'}
 

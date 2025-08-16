@@ -3,6 +3,42 @@ from sqlalchemy.orm import relationship
 from models.portico.base import Base
 
 class PPAddr(Base):
+    """
+    Represents an address record in the database.
+
+    This model is mapped to the 'pp_addr' table in the 'portown' schema. It stores
+    detailed address information including primary and secondary address lines,
+    city, state, zip code, and optional geographical metadata such as latitude,
+    longitude, and county. The class also offers relationships to other models
+    like providers and phones.
+
+    :ivar id: Unique identifier for the address record.
+    :type id: int
+    :ivar type: The type of address (e.g., residential, business).
+    :type type: str
+    :ivar addr1: Primary address line.
+    :type addr1: str
+    :ivar addr2: Secondary address line (optional).
+    :type addr2: str
+    :ivar city: City of the address.
+    :type city: str
+    :ivar state: State of the address.
+    :type state: str
+    :ivar zip: Zip code of the address.
+    :type zip: str
+    :ivar county: County of the address (optional).
+    :type county: str
+    :ivar fips: Federal Information Processing Standards (FIPS) code (optional).
+    :type fips: str
+    :ivar latitude: Latitude coordinate (optional).
+    :type latitude: str
+    :ivar longitude: Longitude coordinate (optional).
+    :type longitude: str
+    :ivar start_date: Start date that the address is valid (optional).
+    :type start_date: datetime.date
+    :ivar end_date: End date that the address is valid (optional).
+    :type end_date: datetime.date
+    """
     __tablename__ = 'pp_addr'
     __table_args__ = {'schema': 'portown'}
 
@@ -21,6 +57,6 @@ class PPAddr(Base):
     end_date = Column(Date, nullable=True)
 
 
-    providers = relationship("PPProv", back_populates="address")
+    # providers = relationship("PPProv", back_populates="address")
     phones = relationship("PPAddrPhones", back_populates="address")
     provider_address = relationship("PPProvAddr", back_populates="address")

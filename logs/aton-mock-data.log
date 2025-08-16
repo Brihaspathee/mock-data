@@ -1,2 +1,21 @@
 2025-08-16 11:38:31,022 [INFO] config.settings: Fetching Secrets using log
 2025-08-16 11:38:31,620 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:36:26,962 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:36:28,145 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:36:47,888 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:37:08,296 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:37:08,558 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:43:21,193 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:43:21,464 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:44:48,529 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:45:35,908 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:45:36,164 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:46:31,898 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:46:32,149 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:47:12,243 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:47:12,501 [ERROR] neo4j.pool: Unable to retrieve routing information
+2025-08-16 16:49:14,085 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:50:23,462 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:52:53,121 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:53:39,002 [INFO] config.settings: Fetching Secrets using log
+2025-08-16 16:53:45,615 [INFO] config.settings: Fetching Secrets using log
