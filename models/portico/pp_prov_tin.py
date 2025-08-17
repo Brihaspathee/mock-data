@@ -30,3 +30,18 @@ class PPProvTIN(Base):
     tin = Column(Integer, nullable=False)
 
     providers = relationship("PPProv", back_populates="tin")
+
+    def __repr__(self):
+        """
+        Provides a string representation of the `PPProvTIN` object including its key attributes.
+
+        The string representation includes the `id`, `name`, and `tin` properties of the
+        object, facilitating a structured and human-readable output which can be useful
+        for debugging and logging purposes.
+
+        :return: A formatted string representing the `PPProvTIN` object with its key attributes.
+        :rtype: str
+        """
+        return (f"<PPProvTIN(id={self.id}, "
+                f"name={self.name}, "
+                f"tin={self.tin})>")

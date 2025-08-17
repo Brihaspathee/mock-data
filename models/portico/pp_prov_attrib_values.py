@@ -47,5 +47,20 @@ class PPProvAttribValues(Base):
     field = relationship("FmgAttributeField")
 
     def __repr__(self):
-        return (f"<PPProvAttribValues(id={self.id}, prov_attribute_id={self.prov_attribute_id}, field_id={self.field_id}, "
-                f"value={self.value}, value_date={self.value_date}, value_number={self.value_number})>")
+        """
+        Generate the official string representation of the PPProvAttribValues object.
+
+        This method is intended to provide a human-readable representation of
+        the instance, showing its critical attributes for debugging and logging
+        purposes.
+
+        :return: A string representation of the PPProvAttribValues instance,
+            including values of its main attributes.
+        :rtype: str
+        """
+        return (f"<PPProvAttribValues(id={self.id}, "
+                f"prov_attribute_id={self.prov_attribute_id}, "
+                f"field_id={self.field_id}, "
+                f"value={self.value}, "
+                f"value_date={self.value_date}, "
+                f"value_number={self.value_number})>")

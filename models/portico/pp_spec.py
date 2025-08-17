@@ -37,3 +37,15 @@ class PPSpec(Base):
     site_visit_req = Column(String, nullable=True)
 
     # providers = relationship("PPProv", back_populates="specialty")
+
+    def __repr__(self):
+        """
+        Provides a string representation of the PPSpec object, which includes key
+        attributes such as id, type, description, and whether a site visit is required.
+
+        :return: A string representation of the `PPSpec` instance
+        :rtype: str
+        """
+        return (f"<PPSpec(id={self.id}, type={self.type}, "
+                f"description={self.description}, "
+                f"site_visit_req={self.site_visit_req})>")

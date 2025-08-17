@@ -41,4 +41,16 @@ class FmgAttributeField(Base):
     # values = relationship("PPProvAttribValues", back_populates="field")
 
     def __repr__(self):
+        """
+        Represents the string representation of the FmgAttributeField instance.
+
+        The `__repr__` method provides a developer-friendly string representation
+        of an instance, typically used for debugging purposes. This includes key
+        attributes of the FmgAttributeField such as `id`, `attribute_id`, `fmgcode`,
+        `field_name`, and `datatype`.
+
+        :return: A string representation of the FmgAttributeField instance,
+            formatted with its key attributes.
+        :rtype: str
+        """
         return f"<FmgAttributeField(id={self.id}, attribute_id={self.attribute_id}, fmgcode={self.fmgcode}, field_name={self.field_name}, datatype={self.datatype})>"

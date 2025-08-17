@@ -32,3 +32,14 @@ class PPAddrPhones(Base):
 
     address = relationship("PPAddr", back_populates="phones")
     phone = relationship("PPPhones", back_populates="addresses")
+
+    def __repr__(self):
+        """
+        Provides a string representation of the object for debugging and logging purposes.
+
+        :return: A string that includes the id, address_id, and phone_id properties of the object.
+        :rtype: str
+        """
+        return (f"<PPAddrPhones(id={self.id}, "
+                f"address_id={self.address_id}, "
+                f"phone_id={self.phone_id})>")

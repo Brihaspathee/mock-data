@@ -57,3 +57,22 @@ class PPProv(Base):
     addresses = relationship("PPProvAddr", back_populates="providers")
 
     attributes = relationship("PPProvAttrib", back_populates="provider")
+
+    def __repr__(self):
+
+        """
+        Provides a string representation of the PPProv object. This method
+        is intended to return a concise representation of the primary
+        identification details of a PPProv instance. The string is formatted
+        to include the instance's id, name, tin_id, prov_type_id, address_id,
+        and specialty_id in an easily readable manner.
+
+        :return: A string that represents the instance's key attributes.
+        :rtype: str
+        """
+
+        return (f"<PPProv(id={self.id}, name={self.name}"
+                f"tin_id={self.tin_id}, "
+                f"prov_type_id={self.prov_type_id}, "
+                f"address_id={self.address_id}, "
+                f"specialty_id={self.specialty_id})>")

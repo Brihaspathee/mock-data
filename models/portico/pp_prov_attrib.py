@@ -40,4 +40,14 @@ class PPProvAttrib(Base):
     attribute_type = relationship("FmgAttributeType")
 
     def __repr__(self):
-        return f"<PPProvAttrib(id={self.id}, prov_id={self.prov_id}, attribute_id={self.attribute_id})>"
+        """
+        Provides a string representation of the object for debugging and logging purposes. The returned
+        string includes key attributes of the instance to help identify its state and key properties.
+
+        :return: A string containing a concise representation of the object, displaying its ID,
+            provider ID, and attribute ID.
+        :rtype: str
+        """
+        return (f"<PPProvAttrib(id={self.id}, "
+                f"prov_id={self.prov_id}, "
+                f"attribute_id={self.attribute_id})>")

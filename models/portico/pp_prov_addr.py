@@ -32,3 +32,17 @@ class PPProvAddr(Base):
 
     providers = relationship("PPProv", back_populates="addresses")
     address = relationship("PPAddr", back_populates="provider_address")
+
+    def __repr__(self):
+        """
+        Provides a string representation of the PPProvAddr object, including its
+        id, prov_id, and address_id attributes. This is primarily useful for
+        debugging purposes or logging, allowing identification of the object's
+        state easily in string form.
+
+        :return: A string representation of the PPProvAddr object.
+        :rtype: str
+        """
+        return (f"<PPProvAddr(id={self.id}, "
+                f"prov_id={self.prov_id}, "
+                f"address_id={self.address_id})>")

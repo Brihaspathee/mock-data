@@ -32,4 +32,15 @@ class FmgAttributeType(Base):
     # provider_attributes = relationship("PPProvAttrib", back_populates="attribute_type")
 
     def __repr__(self):
+        """
+        Provides a string representation of the object for debugging and logging purposes.
+
+        The method returns a formatted string that includes details about the object's
+        `id`, `metatype`, and `description` attributes. This representation is particularly
+        useful for debugging by offering a human-readable way to inspect an instance's state.
+
+        :return: A string representation of the object including its `id`, `metatype`,
+            and `description`.
+        :rtype: str
+        """
         return f"<FmgAttributeType(id={self.id}, metatype={self.metatype}, description={self.description})>"

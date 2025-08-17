@@ -60,3 +60,26 @@ class PPAddr(Base):
     # providers = relationship("PPProv", back_populates="address")
     phones = relationship("PPAddrPhones", back_populates="address")
     provider_address = relationship("PPProvAddr", back_populates="address")
+
+    def __repr__(self):
+        """
+        Provides a string representation of the PPAddr object. The returned string
+        includes all the attributes of the PPAddr instance in a clear and
+        human-readable format, making it useful for debugging and logging purposes.
+
+        :return: A string representing the PPAddr object with its attributes.
+        :rtype: str
+        """
+        return (f"<PPAddr(id={self.id}, "
+                f"type={self.type}, "
+                f"addr1={self.addr1}, "
+                f"addr2={self.addr2}, "
+                f"city={self.city}, "
+                f"state={self.state}, "
+                f"zip={self.zip}, "
+                f"county={self.county}, "
+                f"fips={self.fips}, "
+                f"latitude={self.latitude}, "
+                f"longitude={self.longitude}, "
+                f"start_date={self.start_date}, "
+                f"end_date={self.end_date})>")

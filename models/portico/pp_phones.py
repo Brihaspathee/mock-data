@@ -36,3 +36,18 @@ class PPPhones(Base):
     number = Column(String, nullable=False)
 
     addresses = relationship('PPAddrPhones', back_populates='phone')
+
+    def __repr__(self):
+        """
+        Provides a string representation of the `PPPhones` object for debugging and
+        logging purposes. The returned string contains details about the `id`,
+        `type`, `area_code`, `exchange`, and `number` attributes of the object.
+
+        :return: A string representation of the `PPPhones` object
+        :rtype: str
+        """
+        return (f"<PPPhones(id={self.id}, "
+                f"type={self.type}, "
+                f"area_code={self.area_code}, "
+                f"exchange={self.exchange}, "
+                f"number={self.number})>")
