@@ -1,6 +1,9 @@
 from neo4j import Driver
 
 from models.aton import Identifier, Organization
+import logging
+
+log = logging.getLogger(__name__)
 
 """
 This module contains the logic for creating and managing identifiers
@@ -31,13 +34,13 @@ class IdentifierRepository:
             result = session.run(query, value=tax_identifier.value,
                                  legal_name=tax_identifier.legal_name,
                                  sourced_from=tax_identifier.sourced_from)
-            # print(result)
+            # log.info(result)
             for record in result:
-                # print(record)
+                # log.info(record)
                 tin_node = record["tin"]
-                # print(tin_node["legalName"])
+                # log.info(tin_node["legalName"])
                 labels = list(tin_node.labels)
-                # print(labels)
+                # log.info(labels)
         self.create_relationship(org_node, tin_node, "TIN", "HAS_TIN")
         return tin_node
 
@@ -66,26 +69,26 @@ class IdentifierRepository:
                                  start_date=npi_identifier.start_date,
                                  end_date=npi_identifier.endDate,
                                  sourced_from=npi_identifier.sourced_from)
-            # print(result)
+            # log.info(result)
             for record in result:
-                # print(record)
+                # log.info(record)
                 npi_node = record["npi"]
-                # print(npi_node["value"])
-                # print(npi_node["startDate"])
-                # print(npi_node["endDate"])
-                # print(npi_node["sourced_from"])
-                # print(npi_node.element_id)
+                # log.info(npi_node["value"])
+                # log.info(npi_node["startDate"])
+                # log.info(npi_node["endDate"])
+                # log.info(npi_node["sourced_from"])
+                # log.info(npi_node.element_id)
                 labels = list(npi_node.labels)
-                # print(labels)
+                # log.info(labels)
         self.create_relationship(org_node, npi_node, "NPI", "HAS_NPI")
         return npi_node
 
     def create_identifier(self, org_node, identifier:Identifier):
         if identifier.identifier_type == "NPI":
-            print(f"Creating NPI Identifier with start date: {identifier.start_date}")
+            log.info(f"Creating NPI Identifier with start date: {identifier.start_date}")
             self.create_npi_identifier(org_node, identifier)
         elif identifier.identifier_type == "TIN":
-            print(f"Creating TIN Identifier {identifier.value} with legal name: {identifier.legal_name}")
+            log.info(f"Creating TIN Identifier {identifier.value} with legal name: {identifier.legal_name}")
             self.create_tax_identifier(org_node, identifier)
 
     def create_relationship(self, org_node, identifier_node, identifier_label, relationship_label):

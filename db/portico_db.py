@@ -1,8 +1,10 @@
 from neo4j import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-# from secrets_api import fetch_secrets, define_env
 from config import settings
+import logging
+
+log = logging.getLogger(__name__)
 
 class PorticoDB:
 
@@ -17,7 +19,7 @@ class PorticoDB:
         # print(secrets)
         # self.db_url = secrets["ss.portico.url"]
         self.db_url = settings.POSTGRES["db_url"]
-        print(self.db_url)
+        log.info(self.db_url)
         if not self.db_url:
             raise ValueError("Portico DB URL not defined")
 

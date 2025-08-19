@@ -34,7 +34,8 @@ class Qualification:
                  issuer:str=None,
                  secondary_labels:list[str]=None,
                  start_date:DateType=None,
-                 end_date:DateType=None):
+                 end_date:DateType=None,
+                 sourced_from:str=None,):
         self.qualification_type = qualification_type
         self.value = value
         self.state = state
@@ -42,3 +43,4 @@ class Qualification:
         self.secondary_labels = secondary_labels
         self.start_date = start_date
         self.end_date = end_date
+        self.sourced_from = sourced_from

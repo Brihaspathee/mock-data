@@ -6,6 +6,9 @@ from models.portico.pp_prov import PPProv
 from portico_reads.service.provider.provider_read import ProviderRead
 from transform import transformers
 from transform.transformers import transform_to_aton
+import logging
+
+log = logging.getLogger(__name__)
 
 
 # def get_person():
@@ -72,10 +75,10 @@ def create_organization(provider:PPProv):
     org_repo = aton_graph.get_org_repo()
     org_repo.create_organization(organization)
 
-print("Starting...")
-print(f"Running on {settings.ENVIRONMENT} environment")
-print(f"POSTGRES info {settings.POSTGRES} environment")
-print(f"NEO4J info {settings.NEO4J} environment")
+log.info("Starting...")
+log.info(f"Running on {settings.ENVIRONMENT} environment")
+log.info(f"POSTGRES info {settings.POSTGRES} environment")
+log.info(f"NEO4J info {settings.NEO4J} environment")
 # portico_db: PorticoDB = PorticoDB()
 # portico_db.connect()
 # session = portico_db.get_session()

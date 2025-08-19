@@ -5,6 +5,9 @@ from models.portico import PPProv, PPAddr, PPProvAddr, PPAddrPhones, PPProvAttri
 from typing import cast
 
 from models.portico.pp_prov_attrib import PPProvAttrib
+import logging
+
+log = logging.getLogger(__name__)
 
 """
 This module contains the ProviderRead class, which is responsible for reading provider data from the database.
@@ -38,7 +41,7 @@ class ProviderRead:
         db_session : Session
             Provides a session object for database operations.
         """
-        print("Initializing ProviderRead")
+        log.info("Initializing ProviderRead")
         self.portico_db: PorticoDB = PorticoDB()
         self.portico_db.connect()
         self.db_session: Session = self.portico_db.get_session()
@@ -56,7 +59,7 @@ class ProviderRead:
         :rtype: list[PPProv] | None
         """
         # db_session: Session = connect_to_portico_db()
-        print("Reading providers")
+        log.info("Reading providers")
         providers: list[type[PPProv]] = []
         try:
             providers: list[PPProv] = cast(list[PPProv],
@@ -77,9 +80,9 @@ class ProviderRead:
 
         except Exception as e:
             self.db_session.rollback()
-            print("Error: ", e, "\n")
+            log.info("Error: ", e, "\n")
 
         finally:
-            print("Closing DB connections")
+            log.info("Closing DB connections")
             self.db_session.close()
             self.portico_db.close()

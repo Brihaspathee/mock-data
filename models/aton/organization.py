@@ -1,5 +1,6 @@
 from neo4j.time import Date
 
+from models.aton import Qualification, Contact
 from models.aton.identifier import Identifier
 
 
@@ -30,9 +31,15 @@ class Organization:
                  capitated: bool = False,
                  effective_date: Date = None,
                  sourced_from: str = None,
-                 identifiers=None):
+                 identifiers=None,
+                 qualifications: list[Qualification] | None =None,
+                 contacts: list[Contact] | None =None,):
         if identifiers is None:
             self.identifiers = []
+        if qualifications is None:
+            self.qualifications = []
+        if contacts is None:
+            self.contacts = []
         self.element_id = ""
         self.name = name
         self.alias_name = alias_name
