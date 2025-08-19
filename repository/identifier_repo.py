@@ -92,24 +92,26 @@ class IdentifierRepository:
             self.create_tax_identifier(org_node, identifier)
 
     def create_relationship(self, org_node, identifier_node, identifier_label, relationship_label):
-        with open("queries/create_rel_identifier.cypher", "r") as f:
+        # with open("queries/delete_create_rel_identifier.cypher", "r") as f:
+        #     rel_query = f.read()
+        with open("queries/create_rels.cypher", "r") as f:
             rel_query = f.read()
         with self.driver.session() as session:
-            rel_result = session.run(rel_query, parent_labels="Organization",
-                                     parent_element_id = org_node.element_id,
-                                     identifier_labels=f"Identifier:{identifier_label}",
-                                     identifier_element_id=identifier_node.element_id,
+            rel_result = session.run(rel_query, source_label="Organization",
+                                     source_element_id = org_node.element_id,
+                                     target_label=f"Identifier:{identifier_label}",
+                                     target_element_id=identifier_node.element_id,
                                      rel_type=relationship_label)
 
         # if "NPI" in identifier_node.labels:
-        #     with open("queries/org_rel_identifier_1.cypher", "r") as f:
+        #     with open("queries/delete_org_rel_identifier_1.cypher", "r") as f:
         #         rel_query = f.read()
         #     with self.driver.session() as session:
         #         rel_result = session.run(rel_query, org_element_id=org_node.element_id,
         #                              npi_element_id=identifier_node.element_id)
         #         # print(rel_result)
         # elif "TIN" in identifier_node.labels:
-        #     with open("queries/org_rel_identifier_2.cypher", "r") as f:
+        #     with open("queries/delete_org_rel_identifier_2.cypher", "r") as f:
         #         rel_query = f.read()
         #     with self.driver.session() as session:
         #         rel_result = session.run(rel_query, org_element_id=org_node.element_id,

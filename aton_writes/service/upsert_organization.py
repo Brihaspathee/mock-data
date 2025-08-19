@@ -3,7 +3,6 @@ from models.aton import Organization
 from repository import OrganizationRepository, IdentifierRepository,QualificationRepository
 import logging
 
-from repository.address_repo import AddressRepository
 from repository.contact_repo import ContactRepository
 
 log = logging.getLogger(__name__)
