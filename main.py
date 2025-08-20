@@ -60,25 +60,26 @@ log = logging.getLogger(__name__)
 #         session.close()
 #         portico_db.close()
 
-def create_organization(provider:PPProv):
-    aton_graph: AtonGraphDB = AtonGraphDB()
-    aton_graph.connect()
-    effective_date_str="2023-01-01"
-    effective_date = DBUtils.convert_date_to_neo4j_date(effective_date_str)
-    organization = Organization(name=provider.name,
-                                alias_name="Org 1",
-                                type=provider.prov_type.type,
-                                description="Description 1",
-                                effective_date=effective_date,
-                                capitated=True,
-                                sourced_from="Source 1")
-    org_repo = aton_graph.get_org_repo()
-    org_repo.create_organization(organization)
+# def create_organization(provider:PPProv):
+#     aton_graph: AtonGraphDB = AtonGraphDB()
+#     aton_graph.connect()
+#     effective_date_str="2023-01-01"
+#     effective_date = DBUtils.convert_date_to_neo4j_date(effective_date_str)
+#     organization = Organization(name=provider.name,
+#                                 alias_name="Org 1",
+#                                 type=provider.prov_type.type,
+#                                 description="Description 1",
+#                                 effective_date=effective_date,
+#                                 capitated=True,
+#                                 sourced_from="Source 1")
+#     org_repo = aton_graph.get_org_repo()
+#     org_repo.create_organization(organization)
 
 log.info("Starting...")
 log.info(f"Running on {settings.ENVIRONMENT} environment")
 log.info(f"POSTGRES info {settings.POSTGRES} environment")
 log.info(f"NEO4J info {settings.NEO4J} environment")
+log.info(f"Attributes JSON{settings.FLAT_CONFIG}")
 # portico_db: PorticoDB = PorticoDB()
 # portico_db.connect()
 # session = portico_db.get_session()

@@ -6034,3 +6034,249 @@
 {"time": "2025-08-19 19:05:42,762", "level": "INFO", "logger": "repository.contact_repo", "message": "Target node:4:5913e5b8-fc28-4c03-8616-42d6bd0d09a8:6"}
 {"time": "2025-08-19 19:05:42,762", "level": "INFO", "logger": "repository.contact_repo", "message": "Source label:Contact"}
 {"time": "2025-08-19 19:05:42,762", "level": "INFO", "logger": "repository.contact_repo", "message": "Target label:Telecom"}
+2025-08-20 05:17:08,836 [INFO] config.settings: Fetching Secrets using log
+2025-08-20 05:17:09,028 [INFO] __main__: Starting...
+2025-08-20 05:17:09,028 [INFO] __main__: Running on local environment
+2025-08-20 05:17:09,028 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-20 05:17:09,028 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-20 05:17:09,028 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-20 05:17:09,028 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-20 05:17:09,073 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-20 05:17:09,135 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPProv(id=1, name=Kaptured Hospitaltin_id=1, prov_type_id=1, address_id=1, specialty_id=1)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: Kaptured Hospital
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: HOSP
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: 43-5343234
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPProvAddr(id=1, prov_id=1, address_id=1)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: BILLING
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: 13377 Batten Lane
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPAddrPhones(id=1, address_id=1, phone_id=1)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: CELL
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: 9150
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: Provider Attribute:<FmgAttributeType(id=101, metatype=PROV_NPI, description=Provider NPI)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPProvAttrib(id=1, prov_id=1, attribute_id=101)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <FmgAttributeType(id=101, metatype=PROV_NPI, description=Provider NPI)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPProvAttribValues(id=3, prov_attribute_id=1, field_id=1004, value=type 1, value_date=None, value_number=None)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <FmgAttributeField(id=1004, attribute_id=101, fmgcode=None, field_name=type, datatype=string)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: type 1
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: None
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <PPProvAttribValues(id=2, prov_attribute_id=1, field_id=1002, value=None, value_date=2019-01-01, value_number=None)>
+2025-08-20 05:17:09,136 [INFO] utils.log_provider: <FmgAttributeField(id=1002, attribute_id=101, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: None
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: 2019-01-01
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <PPProvAttribValues(id=1, prov_attribute_id=1, field_id=1001, value=235625546, value_date=None, value_number=None)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <FmgAttributeField(id=1001, attribute_id=101, fmgcode=None, field_name=number, datatype=string)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: 235625546
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: None
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: Provider Attribute:<FmgAttributeType(id=102, metatype=PROV_AASM_CERT, description=Provider AASM Certification)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <PPProvAttrib(id=2, prov_id=1, attribute_id=102)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <FmgAttributeType(id=102, metatype=PROV_AASM_CERT, description=Provider AASM Certification)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <PPProvAttribValues(id=5, prov_attribute_id=2, field_id=1006, value=, value_date=2020-07-01, value_number=None)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <FmgAttributeField(id=1006, attribute_id=102, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: 
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: 2020-07-01
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <PPProvAttribValues(id=4, prov_attribute_id=2, field_id=1005, value=YES, value_date=None, value_number=None)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: <FmgAttributeField(id=1005, attribute_id=102, fmgcode=None, field_name=AASM Certification, datatype=string)>
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: YES
+2025-08-20 05:17:09,137 [INFO] utils.log_provider: None
+2025-08-20 05:17:09,138 [INFO] transform.transformers: Getting NPI
+2025-08-20 05:17:09,138 [INFO] transform.transformers: 101
+2025-08-20 05:17:09,138 [INFO] transform.transformers: 1004
+2025-08-20 05:17:09,138 [INFO] transform.transformers: <FmgAttributeField(id=1004, attribute_id=101, fmgcode=None, field_name=type, datatype=string)>
+2025-08-20 05:17:09,138 [INFO] transform.transformers: 1002
+2025-08-20 05:17:09,138 [INFO] transform.transformers: <FmgAttributeField(id=1002, attribute_id=101, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:17:09,138 [INFO] transform.transformers: 2019-01-01
+2025-08-20 05:17:09,138 [INFO] transform.transformers: 1001
+2025-08-20 05:17:09,138 [INFO] transform.transformers: <FmgAttributeField(id=1001, attribute_id=101, fmgcode=None, field_name=number, datatype=string)>
+2025-08-20 05:17:09,139 [INFO] transform.transformers: 102
+2025-08-20 05:17:09,139 [INFO] transform.transformers: NPI Start Date 2019-01-01
+2025-08-20 05:17:09,139 [INFO] transform.transformers: NPI value: 235625546
+2025-08-20 05:17:09,139 [INFO] transform.transformers: NPI start date: 2019-01-01
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Getting TIN
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Getting Provider Attributes
+2025-08-20 05:17:09,139 [INFO] transform.transformers: 101
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Qualifications: []
+2025-08-20 05:17:09,139 [INFO] transform.transformers: 102
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Checking if can load qualification
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Attribute ID: 102
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Field ID: 1006
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Value: 
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Field ID: 1005
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Value: YES
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Found field 1005 with value YES
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Qualifications: [<models.aton.qualification.Qualification object at 0x104532090>]
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Contact Use: BILLING
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Address:<PPAddr(id=1, type=BILLING, addr1=13377 Batten Lane, addr2=None, city=Odessa, state=FL, zip=33556, county=Pasco, fips=12101, latitude=None, longitude=None, start_date=2020-01-01, end_date=None)>
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phones: [<PPAddrPhones(id=1, address_id=1, phone_id=1)>]
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone:<PPAddrPhones(id=1, address_id=1, phone_id=1)>
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone Type:CELL
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone area:813
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone exchange:357
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone number:9150
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Phone Number Full:8133579150
+2025-08-20 05:17:09,139 [INFO] transform.transformers: Contact: <Contact(use=BILLING, address=<Address(street_address=13377 Batten Lane, secondary_address=None, city=Odessa, state=FL, zip_code=33556, county=Pasco, fips=None, latitude=None, longitude=None)>, telecom=<Telecom(phone=8133579150, fax=None, tty=None, after_hours_number=None, email=None, website=None)>, person=None)>
+2025-08-20 05:17:09,139 [INFO] aton_writes.service.upsert_organization: Creating organization
+2025-08-20 05:17:09,156 [INFO] repository.organization_repo: Organization Name: Kaptured Hospital
+2025-08-20 05:17:09,156 [INFO] repository.organization_repo: Organization Alias Name: None
+2025-08-20 05:17:09,156 [INFO] repository.organization_repo: Organization Type: HOSP
+2025-08-20 05:17:09,156 [INFO] repository.organization_repo: Organization Description: None
+2025-08-20 05:17:09,156 [INFO] repository.organization_repo: Organization Effective Date: 2023-01-01
+2025-08-20 05:17:09,162 [INFO] repository.organization_repo: <neo4j._sync.work.result.Result object at 0x1045518e0>
+2025-08-20 05:17:09,182 [INFO] repository.organization_repo: <Record org=<Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:12' labels=frozenset({'Organization'}) properties={'sourcedFrom': 'Mock Data', 'name': 'Kaptured Hospital', 'type': 'HOSP', 'effectiveDate': neo4j.time.Date(2023, 1, 1), 'capitated': False}>>
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: Kaptured Hospital
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: None
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: HOSP
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: None
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: None
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: False
+2025-08-20 05:17:09,183 [INFO] repository.organization_repo: None
+2025-08-20 05:17:09,183 [INFO] aton_writes.service.upsert_organization: identifier: NPI - 235625546
+2025-08-20 05:17:09,183 [INFO] repository.identifier_repo: Creating NPI Identifier with start date: 2019-01-01
+2025-08-20 05:17:09,305 [INFO] aton_writes.service.upsert_organization: identifier: TIN - 43-5343234
+2025-08-20 05:17:09,305 [INFO] repository.identifier_repo: Creating TIN Identifier 43-5343234 with legal name: Kaptured Inc
+2025-08-20 05:17:09,392 [INFO] aton_writes.service.upsert_organization: Creating qualifications: [<models.aton.qualification.Qualification object at 0x104532090>]
+2025-08-20 05:17:09,393 [INFO] aton_writes.service.upsert_organization: qualification: AASM Certification - None
+2025-08-20 05:17:09,403 [INFO] repository.qualification_repo: Qualification Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:12
+2025-08-20 05:17:09,403 [INFO] repository.qualification_repo: Qualification Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:15
+2025-08-20 05:17:09,403 [INFO] repository.qualification_repo: Qualification Source label:Organization
+2025-08-20 05:17:09,403 [INFO] repository.qualification_repo: Qualification Target label:Certification:Qualification
+2025-08-20 05:17:09,506 [INFO] aton_writes.service.upsert_organization: Contact: BILLING
+2025-08-20 05:17:09,509 [INFO] repository.contact_repo: Results is: <neo4j._sync.work.result.Result object at 0x104584f80>
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Record: <Record contact=<Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:16' labels=frozenset({'Contact'}) properties={'use': 'BILLING'}>>
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Contact node: <Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:16' labels=frozenset({'Contact'}) properties={'use': 'BILLING'}>
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:12
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:16
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Source label:Organization
+2025-08-20 05:17:09,516 [INFO] repository.contact_repo: Target label:Contact
+2025-08-20 05:17:09,615 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:16
+2025-08-20 05:17:09,615 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:17
+2025-08-20 05:17:09,615 [INFO] repository.contact_repo: Source label:Contact
+2025-08-20 05:17:09,615 [INFO] repository.contact_repo: Target label:Address
+2025-08-20 05:17:09,738 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:16
+2025-08-20 05:17:09,738 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:18
+2025-08-20 05:17:09,739 [INFO] repository.contact_repo: Source label:Contact
+2025-08-20 05:17:09,739 [INFO] repository.contact_repo: Target label:Telecom
+2025-08-20 05:19:13,314 [INFO] config.settings: Fetching Secrets using log
+2025-08-20 05:19:28,654 [INFO] config.settings: Fetching Secrets using log
+2025-08-20 05:19:28,833 [INFO] __main__: Starting...
+2025-08-20 05:19:28,833 [INFO] __main__: Running on local environment
+2025-08-20 05:19:28,833 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-20 05:19:28,833 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-20 05:19:28,833 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'startDate', '1003': 'endDate', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'sub-categories': ['certification'], 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'startDate', '1007': 'endDate'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'Y'}]}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'startDate', '2003': 'endDate', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'sub-categories': ['license'], 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'startDate', '2007': 'endDate', '2008': 'state', '2009': 'status'}}}
+2025-08-20 05:19:28,833 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-20 05:19:28,833 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-20 05:19:28,871 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-20 05:19:28,932 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-20 05:19:28,932 [INFO] utils.log_provider: <PPProv(id=1, name=Kaptured Hospitaltin_id=1, prov_type_id=1, address_id=1, specialty_id=1)>
+2025-08-20 05:19:28,932 [INFO] utils.log_provider: Kaptured Hospital
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: HOSP
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 43-5343234
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAddr(id=1, prov_id=1, address_id=1)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: BILLING
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 13377 Batten Lane
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPAddrPhones(id=1, address_id=1, phone_id=1)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: CELL
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 9150
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: Provider Attribute:<FmgAttributeType(id=101, metatype=PROV_NPI, description=Provider NPI)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttrib(id=1, prov_id=1, attribute_id=101)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeType(id=101, metatype=PROV_NPI, description=Provider NPI)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttribValues(id=3, prov_attribute_id=1, field_id=1004, value=type 1, value_date=None, value_number=None)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeField(id=1004, attribute_id=101, fmgcode=None, field_name=type, datatype=string)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: type 1
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: None
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttribValues(id=2, prov_attribute_id=1, field_id=1002, value=None, value_date=2019-01-01, value_number=None)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeField(id=1002, attribute_id=101, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: None
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 2019-01-01
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttribValues(id=1, prov_attribute_id=1, field_id=1001, value=235625546, value_date=None, value_number=None)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeField(id=1001, attribute_id=101, fmgcode=None, field_name=number, datatype=string)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 235625546
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: None
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: Provider Attribute:<FmgAttributeType(id=102, metatype=PROV_AASM_CERT, description=Provider AASM Certification)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttrib(id=2, prov_id=1, attribute_id=102)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeType(id=102, metatype=PROV_AASM_CERT, description=Provider AASM Certification)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttribValues(id=5, prov_attribute_id=2, field_id=1006, value=, value_date=2020-07-01, value_number=None)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeField(id=1006, attribute_id=102, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: 2020-07-01
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <PPProvAttribValues(id=4, prov_attribute_id=2, field_id=1005, value=YES, value_date=None, value_number=None)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: <FmgAttributeField(id=1005, attribute_id=102, fmgcode=None, field_name=AASM Certification, datatype=string)>
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: YES
+2025-08-20 05:19:28,933 [INFO] utils.log_provider: None
+2025-08-20 05:19:28,934 [INFO] transform.transformers: Getting NPI
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 101
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 1004
+2025-08-20 05:19:28,935 [INFO] transform.transformers: <FmgAttributeField(id=1004, attribute_id=101, fmgcode=None, field_name=type, datatype=string)>
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 1002
+2025-08-20 05:19:28,935 [INFO] transform.transformers: <FmgAttributeField(id=1002, attribute_id=101, fmgcode=None, field_name=effectiveDate, datatype=date)>
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 2019-01-01
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 1001
+2025-08-20 05:19:28,935 [INFO] transform.transformers: <FmgAttributeField(id=1001, attribute_id=101, fmgcode=None, field_name=number, datatype=string)>
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 102
+2025-08-20 05:19:28,935 [INFO] transform.transformers: NPI Start Date 2019-01-01
+2025-08-20 05:19:28,935 [INFO] transform.transformers: NPI value: 235625546
+2025-08-20 05:19:28,935 [INFO] transform.transformers: NPI start date: 2019-01-01
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Getting TIN
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Getting Provider Attributes
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 101
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Qualifications: []
+2025-08-20 05:19:28,935 [INFO] transform.transformers: 102
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Checking if can load qualification
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Attribute ID: 102
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Field ID: 1006
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Value: 
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Field ID: 1005
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Value: YES
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Found field 1005 with value YES
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Qualifications: [<models.aton.qualification.Qualification object at 0x104d7a690>]
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Contact Use: BILLING
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Address:<PPAddr(id=1, type=BILLING, addr1=13377 Batten Lane, addr2=None, city=Odessa, state=FL, zip=33556, county=Pasco, fips=12101, latitude=None, longitude=None, start_date=2020-01-01, end_date=None)>
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phones: [<PPAddrPhones(id=1, address_id=1, phone_id=1)>]
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone:<PPAddrPhones(id=1, address_id=1, phone_id=1)>
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone Type:CELL
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone area:813
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone exchange:357
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone number:9150
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Phone Number Full:8133579150
+2025-08-20 05:19:28,935 [INFO] transform.transformers: Contact: <Contact(use=BILLING, address=<Address(street_address=13377 Batten Lane, secondary_address=None, city=Odessa, state=FL, zip_code=33556, county=Pasco, fips=None, latitude=None, longitude=None)>, telecom=<Telecom(phone=8133579150, fax=None, tty=None, after_hours_number=None, email=None, website=None)>, person=None)>
+2025-08-20 05:19:28,935 [INFO] aton_writes.service.upsert_organization: Creating organization
+2025-08-20 05:19:28,948 [INFO] repository.organization_repo: Organization Name: Kaptured Hospital
+2025-08-20 05:19:28,948 [INFO] repository.organization_repo: Organization Alias Name: None
+2025-08-20 05:19:28,948 [INFO] repository.organization_repo: Organization Type: HOSP
+2025-08-20 05:19:28,948 [INFO] repository.organization_repo: Organization Description: None
+2025-08-20 05:19:28,948 [INFO] repository.organization_repo: Organization Effective Date: 2023-01-01
+2025-08-20 05:19:28,952 [INFO] repository.organization_repo: <neo4j._sync.work.result.Result object at 0x104d9dc40>
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: <Record org=<Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:19' labels=frozenset({'Organization'}) properties={'sourcedFrom': 'Mock Data', 'name': 'Kaptured Hospital', 'type': 'HOSP', 'effectiveDate': neo4j.time.Date(2023, 1, 1), 'capitated': False}>>
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: Kaptured Hospital
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: None
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: HOSP
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: None
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: None
+2025-08-20 05:19:28,964 [INFO] repository.organization_repo: False
+2025-08-20 05:19:28,965 [INFO] repository.organization_repo: None
+2025-08-20 05:19:28,965 [INFO] aton_writes.service.upsert_organization: identifier: NPI - 235625546
+2025-08-20 05:19:28,965 [INFO] repository.identifier_repo: Creating NPI Identifier with start date: 2019-01-01
+2025-08-20 05:19:28,991 [INFO] aton_writes.service.upsert_organization: identifier: TIN - 43-5343234
+2025-08-20 05:19:28,991 [INFO] repository.identifier_repo: Creating TIN Identifier 43-5343234 with legal name: Kaptured Inc
+2025-08-20 05:19:29,012 [INFO] aton_writes.service.upsert_organization: Creating qualifications: [<models.aton.qualification.Qualification object at 0x104d7a690>]
+2025-08-20 05:19:29,012 [INFO] aton_writes.service.upsert_organization: qualification: AASM Certification - None
+2025-08-20 05:19:29,021 [INFO] repository.qualification_repo: Qualification Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:19
+2025-08-20 05:19:29,021 [INFO] repository.qualification_repo: Qualification Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:4
+2025-08-20 05:19:29,021 [INFO] repository.qualification_repo: Qualification Source label:Organization
+2025-08-20 05:19:29,021 [INFO] repository.qualification_repo: Qualification Target label:Certification:Qualification
+2025-08-20 05:19:29,034 [INFO] aton_writes.service.upsert_organization: Contact: BILLING
+2025-08-20 05:19:29,037 [INFO] repository.contact_repo: Results is: <neo4j._sync.work.result.Result object at 0x104dcd2b0>
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Record: <Record contact=<Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:5' labels=frozenset({'Contact'}) properties={'use': 'BILLING'}>>
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Contact node: <Node element_id='4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:5' labels=frozenset({'Contact'}) properties={'use': 'BILLING'}>
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:19
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:5
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Source label:Organization
+2025-08-20 05:19:29,045 [INFO] repository.contact_repo: Target label:Contact
+2025-08-20 05:19:29,073 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:5
+2025-08-20 05:19:29,073 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:6
+2025-08-20 05:19:29,073 [INFO] repository.contact_repo: Source label:Contact
+2025-08-20 05:19:29,073 [INFO] repository.contact_repo: Target label:Address
+2025-08-20 05:19:29,095 [INFO] repository.contact_repo: Source node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:5
+2025-08-20 05:19:29,095 [INFO] repository.contact_repo: Target node:4:7aa7b0e9-c7f9-4e23-8794-61489b180e3a:7
+2025-08-20 05:19:29,095 [INFO] repository.contact_repo: Source label:Contact
+2025-08-20 05:19:29,096 [INFO] repository.contact_repo: Target label:Telecom

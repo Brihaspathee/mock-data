@@ -1,0 +1,55 @@
+{
+  "provider": {
+    "101": {
+      "category": "identifier",
+      "name": "PROV_NPI",
+      "field_mappings": {
+        "1001": "value",
+        "1002": "startDate",
+        "1003": "endDate",
+        "1004": "NOT-MAPPED"
+      }
+    },
+    "102": {
+      "category": "qualification",
+      "sub-categories": ["certification"],
+      "name": "PROV_AASM_CERT",
+      "field_mappings": {
+        "1005": "NOT-MAPPED",
+        "1006": "startDate",
+        "1007": "endDate"
+      },
+      "conditions": [
+        {
+          "field_id": "1005",
+          "operator": "equals",
+          "value": "Y"
+        }
+      ]
+    }
+  },
+  "practitioner": {
+    "201": {
+      "category": "identifier",
+      "name": "PRAC_NPI",
+      "field_mappings": {
+        "2001": "value",
+        "2002": "startDate",
+        "2003": "endDate",
+        "2004": "NOT-MAPPED"
+      }
+    },
+    "202": {
+      "category": "qualification",
+      "sub-categories": ["license"],
+      "name": "PRAC_MEDICAL_LICENSE",
+      "field_mappings": {
+        "2005": "value",
+        "2006": "startDate",
+        "2007": "endDate",
+        "2008": "state",
+        "2009": "status"
+      }
+    }
+  }
+}
