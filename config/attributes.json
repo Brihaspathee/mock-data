@@ -2,53 +2,73 @@
   "provider": {
     "101": {
       "category": "identifier",
+      "labels": ["NPI"],
+      "attr_type": "NPI",
+      "relationship": "HAS_NPI",
       "name": "PROV_NPI",
       "field_mappings": {
         "1001": "value",
-        "1002": "startDate",
-        "1003": "endDate",
+        "1002": "start_date",
+        "1003": "end_date",
         "1004": "NOT-MAPPED"
       }
     },
     "102": {
       "category": "qualification",
-      "sub-categories": ["certification"],
+      "labels": ["Certification"],
+      "attr_type": "AASM Certification",
+      "issuer": "American Academy of Sleep Medicine",
       "name": "PROV_AASM_CERT",
       "field_mappings": {
         "1005": "NOT-MAPPED",
-        "1006": "startDate",
-        "1007": "endDate"
+        "1006": "start_date",
+        "1007": "end_date"
       },
       "conditions": [
         {
           "field_id": "1005",
           "operator": "equals",
-          "value": "Y"
+          "value": "YES"
         }
       ]
+    },
+    "103": {
+      "category": "identifier",
+      "labels": ["MedicareID"],
+      "attr_type": "MedicareID",
+      "relationship": "HAS_MEDICARE_ID",
+      "name": "PROV_MEDICARE_ID",
+      "field_mappings": {
+        "1008": "value"
+      }
     }
   },
   "practitioner": {
     "201": {
       "category": "identifier",
+      "labels": ["NPI"],
+      "attr_type": "NPI",
+      "relationship": "HAS_NPI",
       "name": "PRAC_NPI",
       "field_mappings": {
         "2001": "value",
-        "2002": "startDate",
-        "2003": "endDate",
+        "2002": "start_date",
+        "2003": "end_date",
         "2004": "NOT-MAPPED"
       }
     },
     "202": {
       "category": "qualification",
-      "sub-categories": ["license"],
+      "labels": ["License"],
+      "attr_type": "Medical License",
       "name": "PRAC_MEDICAL_LICENSE",
       "field_mappings": {
         "2005": "value",
-        "2006": "startDate",
-        "2007": "endDate",
+        "2006": "start_date",
+        "2007": "end_date",
         "2008": "state",
-        "2009": "status"
+        "2009": "status",
+        "2010": "issuer"
       }
     }
   }

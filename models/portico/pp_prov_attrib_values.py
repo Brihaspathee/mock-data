@@ -1,6 +1,10 @@
 from sqlalchemy import Column, Integer, String, Numeric, Date, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
 from models.portico.base import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from models.portico.fmg_attribute_fields import FmgAttributeField
 
 
 class PPProvAttribValues(Base):
@@ -44,7 +48,7 @@ class PPProvAttribValues(Base):
 
     # provider_attribute = relationship("PPProvAttrib", back_populates="values")
     # field = relationship("FmgAttributeField", back_populates="values")
-    field = relationship("FmgAttributeField")
+    field: Mapped["FmgAttributeField"]= relationship("FmgAttributeField")
 
     def __repr__(self):
         """

@@ -1,7 +1,8 @@
 -- 1. Insert data into FMG_ATTRIBUTE_TYPES table
 INSERT INTO portown.fmg_attribute_types (id,metatype,description) VALUES
 	 (101,'PROV_NPI','Provider NPI'),
-	 (102,'PROV_AASM_CERT','Provider AASM Certification');
+	 (102,'PROV_AASM_CERT','Provider AASM Certification'),
+     (103,'PROV_MEDICARE_ID','Provider Medicare Id');;
 
 
 -- 2. Insert data into FMG_ATTRIBUTE_FIELDS table
@@ -12,7 +13,8 @@ INSERT INTO portown.fmg_attribute_fields (id,attribute_id,fmgcode,field_name,"da
 	 (1004,101,NULL,'type','string'),
 	 (1005,102,NULL,'AASM Certification','string'),
 	 (1006,102,NULL,'effectiveDate','date'),
-	 (1007,102,NULL,'endDate','date');
+	 (1007,102,NULL,'endDate','date'),
+     (1008,103,NULL,'number','string');;
 
 
 -- 3. Insert data into PP_PROV_TIN table
@@ -53,7 +55,8 @@ INSERT INTO portown.pp_prov_addr (id,prov_id,address_id) VALUES
 -- 11. Insert data into PP_PROV_ATTRIB table
 INSERT INTO portown.pp_prov_attrib (id,prov_id,attribute_id) VALUES
 	 (1,1,101),
-	 (2,1,102);
+	 (2,1,102),
+	 (3,1,103);;
 
 
 -- 12. Insert data into PP_PROV_ATTRIB_VALUES table
@@ -62,4 +65,5 @@ INSERT INTO portown.pp_prov_attrib_values (id,prov_attribute_id,field_id,value,v
 	 (2,1,1002,NULL,'2019-01-01',NULL),
 	 (3,1,1004,'type 1',NULL,NULL),
 	 (4,2,1005,'YES',NULL,NULL),
-	 (5,2,1006,'','2020-07-01',NULL);
+	 (5,2,1006,'','2020-07-01',NULL),
+	 (6,3,1007,'FL34634359',NULL,NULL);

@@ -1,6 +1,10 @@
 from sqlalchemy import Column, Integer, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
 from models.portico.base import Base
+from typing import List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from models.portico.pp_prov_attrib_values import PPProvAttribValues
 
 
 class PPProvAttrib(Base):
@@ -35,7 +39,7 @@ class PPProvAttrib(Base):
 
     provider = relationship("PPProv", back_populates="attributes")
     # values = relationship("PPProvAttribValues", back_populates="provider_attribute")
-    values = relationship("PPProvAttribValues")
+    values: Mapped[List["PPProvAttribValues"]] = relationship("PPProvAttribValues")
     # attribute_type = relationship("FmgAttributeType", back_populates="provider_attributes")
     attribute_type = relationship("FmgAttributeType")
 

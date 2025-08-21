@@ -58,9 +58,10 @@ class ProviderRead:
             information, or None if an error occurs during the process.
         :rtype: list[PPProv] | None
         """
-        # db_session: Session = connect_to_portico_db()
+
         log.info("Reading providers")
-        providers: list[type[PPProv]] = []
+        # Read providers from portico database
+        # Eagerly load the provider's addresses, phones and attributes
         try:
             providers: list[PPProv] = cast(list[PPProv],
                 self.db_session.query(PPProv)
@@ -76,8 +77,10 @@ class ProviderRead:
                 )
                 .all()
             )
+            # Return the list of providers if successful
             return providers
 
+        # Handle exceptions during the read process
         except Exception as e:
             self.db_session.rollback()
             log.info("Error: ", e, "\n")

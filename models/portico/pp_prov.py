@@ -1,6 +1,12 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
+
 from models.portico.base import Base
+from typing import List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from models.portico.pp_prov_addr import PPProvAddr
+    from models.portico.pp_prov_attrib import PPProvAttrib
 
 class PPProv(Base):
     """
@@ -54,9 +60,9 @@ class PPProv(Base):
     # specialty = relationship("PPSpec", back_populates="providers")
     specialty = relationship("PPSpec")
 
-    addresses = relationship("PPProvAddr", back_populates="providers")
+    addresses: Mapped[List["PPProvAddr"]] = relationship("PPProvAddr", back_populates="providers")
 
-    attributes = relationship("PPProvAttrib", back_populates="provider")
+    attributes: Mapped[List["PPProvAttrib"]] = relationship("PPProvAttrib", back_populates="provider")
 
     def __repr__(self):
 

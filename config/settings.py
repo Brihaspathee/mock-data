@@ -2,9 +2,13 @@ import json
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+
+from sqlalchemy.orm import relationship
+
 from config.secrets_api import SecretsAPI
 import logging
 from config import aton_logging
+from transform.attribute_transformer import AttributeStructure
 
 aton_logging.setup_logging()
 log = logging.getLogger(__name__)
@@ -100,3 +104,18 @@ for entity_type, attributes in GROUPED_CONFIG.items():
 #         }
 #     }
 # }
+
+ATTRIBUTE_STRUCTURES: dict[str, AttributeStructure] = {
+    attr_id: AttributeStructure(
+        entity_type=cfg['entity_type'],
+        category=cfg['category'],
+        labels=cfg.get('labels'),
+        issuer=cfg.get('issuer'),
+        attr_type=cfg.get('attr_type'),
+        relationship=cfg.get('relationship'),
+        name=cfg.get('name'),
+        field_mappings=cfg.get('field_mappings'),
+        conditions=cfg.get('conditions')
+    )
+    for attr_id, cfg in FLAT_CONFIG.items()
+}
