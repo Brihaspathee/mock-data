@@ -30,9 +30,6 @@ class Qualification:
     :type start_date: DateType, optional
     :ivar end_date: The expiry or end date of the qualification's validity.
     :type end_date: DateType, optional
-    :ivar sourced_from: The source organization or platform where the
-        qualification information was retrieved or verified.
-    :type sourced_from: str, optional
     """
     def __init__(self,
                  qualification_type:str,
@@ -41,8 +38,7 @@ class Qualification:
                  issuer:str=None,
                  secondary_labels:list[str]=None,
                  start_date:DateType=None,
-                 end_date:DateType=None,
-                 sourced_from:str=None,):
+                 end_date:DateType=None):
         self.qualification_type = qualification_type
         self.value = value
         self.state = state
@@ -50,7 +46,6 @@ class Qualification:
         self.secondary_labels = secondary_labels
         self.start_date = start_date
         self.end_date = end_date
-        self.sourced_from = sourced_from
 
     def __repr__(self):
         """
@@ -66,8 +61,7 @@ class Qualification:
                 f"issuer={self.issuer}, "
                 f"secondary_labels={self.secondary_labels}, "
                 f"start_date={self.start_date}, "
-                f"end_date={self.end_date}, "
-                f"sourced_from={self.sourced_from})>")
+                f"end_date={self.end_date})>")
 
 
 @dataclass
