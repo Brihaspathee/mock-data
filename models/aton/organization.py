@@ -6,44 +6,69 @@ from models.aton.identifier import Identifier
 
 class Organization:
     """
-    Represents an organization entity.
+    Represents an organization and its related attributes.
 
-    This class is used to encapsulate information about an organization,
-    including its unique identifier, name, alias, description, and whether
-    it operates under a capitated model. The `Organization` class provides
-    a way to store and manage this information within an application.
+    This class provides a structure to encapsulate the details of an organization,
+    along with its associated attributes like identifiers, qualifications, and
+    contacts. It allows tracking of basic details such as name, type, and
+    popularity, while also managing additional information such as whether the
+    organization is capitated or has specific practitioner requirements.
 
-    :ivar element_id: The unique identifier of the organization.
+    :ivar element_id: A unique identifier for the organization element.
     :type element_id: str
     :ivar name: The name of the organization.
     :type name: str
-    :ivar alias_name: The alias or alternative name of the organization.
-    :type alias_name: str
-    :ivar description: A brief description of the organization.
-    :type description: str
-    :ivar capitated: Indicates whether the organization operates under
-        a capitated payment model. Defaults to False.
+    :ivar alias_name: An alternative name or alias for the organization.
+    :type alias_name: str | None
+    :ivar description: A detailed description of the organization.
+    :type description: str | None
+    :ivar type: The type of the organization.
+    :type type: str | None
+    :ivar capitated: Indicates whether the organization is capitated.
     :type capitated: bool
+    :ivar pcp_practitioner_required: States if a Primary Care Practitioner (PCP)
+        is required for the organization.
+    :type pcp_practitioner_required: bool
+    :ivar atypical: Indicates if the organization is considered atypical.
+    :type atypical: bool
+    :ivar popularity: The popularity metric of the organization.
+    :type popularity: float
+    :ivar identifiers: A list of identifiers associated with the organization.
+    :type identifiers: list
+    :ivar qualifications: A list of qualifications associated with the organization.
+    :type qualifications: list[Qualification] | None
+    :ivar contacts: A list of contacts associated with the organization.
+    :type contacts: list[Contact] | None
     """
     def __init__(self, name: str,
                  alias_name: str=None,
                  description: str=None,
                  type: str=None,
                  capitated: bool = False,
-                 pcpAssigment: bool = False,
+                 pcp_practitioner_required: bool = False,
+                 atypical: bool = False,
+                 popularity: float = 0.0,
                  identifiers=None,
                  qualifications: list[Qualification] | None =None,
                  contacts: list[Contact] | None =None,):
         if identifiers is None:
             self.identifiers = []
+        else:
+            self.identifiers = identifiers
         if qualifications is None:
             self.qualifications = []
+        else:
+            self.qualifications = qualifications
         if contacts is None:
             self.contacts = []
+        else:
+            self.contacts = contacts
         self.element_id = ""
         self.name = name
         self.alias_name = alias_name
         self.description = description
         self.type = type
         self.capitated = capitated
-        self.pcpAssigment = pcpAssigment
+        self.pcp_practitioner_required = pcp_practitioner_required
+        self.atypical = atypical
+        self.popularity = popularity

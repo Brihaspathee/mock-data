@@ -141,7 +141,7 @@ def build_node_data(attribute_structure: AttributeStructure, field_data: dict[st
     kwargs = {}
     for field_id, value in field_data.items():
         mapped_field = attribute_structure.field_mappings.get(str(field_id))
-        log.info(f"Mapping field {field_id} to {mapped_field}")
+        # log.info(f"Mapping field {field_id} to {mapped_field}")
         if mapped_field and mapped_field != "NOT-MAPPED":
             kwargs[mapped_field] = value
 
@@ -200,7 +200,7 @@ def evaluate_conditions(attribute_structure: AttributeStructure, field_data: dic
         # If it does, check if the value is not None (i.e. it's not empty)')
         if field_id in field_data and field_data[field_id] is not None:
             actual_value = field_data[field_id]
-            log.info(f"Actual value: {actual_value}")
+            # log.info(f"Actual value: {actual_value}")
             if operator == "equals":
                 if actual_value != expected_value:
                     return False

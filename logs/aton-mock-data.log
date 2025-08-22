@@ -15273,3 +15273,161 @@
 {"time": "2025-08-21 18:27:50,266", "level": "INFO", "logger": "transform.attribute_transformer", "message": "Mapping field 1005 to NOT-MAPPED"}
 {"time": "2025-08-21 18:27:50,433", "level": "INFO", "logger": "aton_writes.service.upsert_organization", "message": "Transaction successful"}
 {"time": "2025-08-21 18:27:50,433", "level": "INFO", "logger": "aton_writes.service.upsert_organization", "message": "Organization Kaptured Hospital created"}
+2025-08-22 04:35:37,413 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:35:37,423 [INFO] __main__: Starting...
+2025-08-22 04:35:37,423 [INFO] __main__: Running on local environment
+2025-08-22 04:35:37,423 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:35:37,423 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:35:37,423 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:35:37,423 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:35:37,423 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:35:37,660 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:35:37,745 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:35:37,747 [INFO] transform.transformers: 101
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1004 to NOT-MAPPED
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1002 to start_date
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1001 to value
+2025-08-22 04:35:37,747 [INFO] transform.transformers: 102
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Actual value: YES
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1005 to NOT-MAPPED
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1006 to start_date
+2025-08-22 04:35:37,747 [INFO] transform.transformers: 103
+2025-08-22 04:35:37,747 [INFO] transform.attribute_transformer: Mapping field 1008 to value
+2025-08-22 04:35:38,445 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 04:35:38,446 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 04:43:17,072 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:43:17,079 [INFO] __main__: Starting...
+2025-08-22 04:43:17,079 [INFO] __main__: Running on local environment
+2025-08-22 04:43:17,079 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:43:17,079 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:43:17,079 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:43:17,079 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:43:17,079 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:43:17,118 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:43:17,178 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:43:17,180 [INFO] transform.transformers: 101
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1004 to NOT-MAPPED
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1002 to start_date
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1001 to value
+2025-08-22 04:43:17,180 [INFO] transform.transformers: 102
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Actual value: YES
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1005 to NOT-MAPPED
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1006 to start_date
+2025-08-22 04:43:17,180 [INFO] transform.transformers: 103
+2025-08-22 04:43:17,180 [INFO] transform.attribute_transformer: Mapping field 1008 to value
+2025-08-22 04:43:17,318 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 04:43:17,318 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 04:44:43,333 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:44:43,338 [INFO] __main__: Starting...
+2025-08-22 04:44:43,338 [INFO] __main__: Running on local environment
+2025-08-22 04:44:43,338 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:44:43,338 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:44:43,338 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:44:43,338 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:44:43,338 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:44:43,374 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:44:43,440 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:44:43,442 [INFO] transform.transformers: 101
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1004 to NOT-MAPPED
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1002 to start_date
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1001 to value
+2025-08-22 04:44:43,442 [INFO] transform.transformers: 102
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Actual value: YES
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1005 to NOT-MAPPED
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1006 to start_date
+2025-08-22 04:44:43,442 [INFO] transform.transformers: 103
+2025-08-22 04:44:43,442 [INFO] transform.attribute_transformer: Mapping field 1008 to value
+2025-08-22 04:44:43,544 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 04:44:43,544 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 04:52:57,760 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:52:57,768 [INFO] __main__: Starting...
+2025-08-22 04:52:57,768 [INFO] __main__: Running on local environment
+2025-08-22 04:52:57,768 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:52:57,768 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:52:57,768 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:52:57,768 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:52:57,768 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:52:57,806 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:52:57,857 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:52:57,858 [INFO] transform.transformers: 101
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1004 to NOT-MAPPED
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1002 to start_date
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1001 to value
+2025-08-22 04:52:57,858 [INFO] transform.transformers: 102
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Actual value: YES
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1005 to NOT-MAPPED
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1006 to start_date
+2025-08-22 04:52:57,858 [INFO] transform.transformers: 103
+2025-08-22 04:52:57,858 [INFO] transform.attribute_transformer: Mapping field 1008 to value
+2025-08-22 04:52:57,918 [ERROR] aton_writes.service.upsert_organization: Transaction failed: name 'self' is not defined
+2025-08-22 04:53:31,947 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:53:31,952 [INFO] __main__: Starting...
+2025-08-22 04:53:31,952 [INFO] __main__: Running on local environment
+2025-08-22 04:53:31,952 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:53:31,952 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:53:31,952 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:53:31,952 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:53:31,953 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:53:31,990 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:53:32,042 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:53:32,043 [INFO] transform.transformers: 101
+2025-08-22 04:53:32,043 [INFO] transform.attribute_transformer: Mapping field 1004 to NOT-MAPPED
+2025-08-22 04:53:32,043 [INFO] transform.attribute_transformer: Mapping field 1002 to start_date
+2025-08-22 04:53:32,043 [INFO] transform.attribute_transformer: Mapping field 1001 to value
+2025-08-22 04:53:32,044 [INFO] transform.transformers: 102
+2025-08-22 04:53:32,044 [INFO] transform.attribute_transformer: Actual value: YES
+2025-08-22 04:53:32,044 [INFO] transform.attribute_transformer: Mapping field 1005 to NOT-MAPPED
+2025-08-22 04:53:32,044 [INFO] transform.attribute_transformer: Mapping field 1006 to start_date
+2025-08-22 04:53:32,044 [INFO] transform.transformers: 103
+2025-08-22 04:53:32,044 [INFO] transform.attribute_transformer: Mapping field 1008 to value
+2025-08-22 04:53:32,344 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 04:53:32,344 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 04:57:41,549 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 04:57:41,554 [INFO] __main__: Starting...
+2025-08-22 04:57:41,554 [INFO] __main__: Running on local environment
+2025-08-22 04:57:41,554 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 04:57:41,554 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 04:57:41,554 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 04:57:41,554 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 04:57:41,554 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 04:57:41,591 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 04:57:41,649 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 04:57:41,717 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 04:57:41,717 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 11:06:36,992 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 11:06:36,999 [INFO] __main__: Starting...
+2025-08-22 11:06:36,999 [INFO] __main__: Running on local environment
+2025-08-22 11:06:36,999 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 11:06:36,999 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 11:06:36,999 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 11:06:36,999 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 11:06:36,999 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 11:06:37,224 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 11:06:37,456 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 11:06:37,474 [ERROR] aton_writes.service.upsert_organization: Transaction failed: 'Organization' object has no attribute 'pcpAssigment'
+2025-08-22 11:08:42,297 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 11:08:42,304 [INFO] __main__: Starting...
+2025-08-22 11:08:42,304 [INFO] __main__: Running on local environment
+2025-08-22 11:08:42,304 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 11:08:42,304 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 11:08:42,304 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 11:08:42,304 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 11:08:42,304 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 11:08:42,341 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 11:08:42,404 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 11:08:42,537 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 11:08:42,537 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created
+2025-08-22 11:09:15,814 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 11:09:33,933 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 11:09:58,391 [INFO] config.settings: Fetching Secrets using log
+2025-08-22 11:09:58,398 [INFO] __main__: Starting...
+2025-08-22 11:09:58,398 [INFO] __main__: Running on local environment
+2025-08-22 11:09:58,398 [INFO] __main__: POSTGRES info {'db_url': 'postgresql+psycopg2://porticoadmin:password@localhost:5432/portico'} environment
+2025-08-22 11:09:58,398 [INFO] __main__: NEO4J info {'url': 'neo4j://localhost:7687', 'username': 'neo4j', 'password': 'password', 'database': 'aton'} environment
+2025-08-22 11:09:58,398 [INFO] __main__: Attributes JSON{'101': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PROV_NPI', 'field_mappings': {'1001': 'value', '1002': 'start_date', '1003': 'end_date', '1004': 'NOT-MAPPED'}}, '102': {'entity_type': 'provider', 'category': 'qualification', 'labels': ['Certification'], 'attr_type': 'AASM Certification', 'issuer': 'American Academy of Sleep Medicine', 'name': 'PROV_AASM_CERT', 'field_mappings': {'1005': 'NOT-MAPPED', '1006': 'start_date', '1007': 'end_date'}, 'conditions': [{'field_id': '1005', 'operator': 'equals', 'value': 'YES'}]}, '103': {'entity_type': 'provider', 'category': 'identifier', 'labels': ['MedicareID'], 'attr_type': 'MedicareID', 'relationship': 'HAS_MEDICARE_ID', 'name': 'PROV_MEDICARE_ID', 'field_mappings': {'1008': 'value'}}, '201': {'entity_type': 'practitioner', 'category': 'identifier', 'labels': ['NPI'], 'attr_type': 'NPI', 'relationship': 'HAS_NPI', 'name': 'PRAC_NPI', 'field_mappings': {'2001': 'value', '2002': 'start_date', '2003': 'end_date', '2004': 'NOT-MAPPED'}}, '202': {'entity_type': 'practitioner', 'category': 'qualification', 'labels': ['License'], 'attr_type': 'Medical License', 'name': 'PRAC_MEDICAL_LICENSE', 'field_mappings': {'2005': 'value', '2006': 'start_date', '2007': 'end_date', '2008': 'state', '2009': 'status', '2010': 'issuer'}}}
+2025-08-22 11:09:58,398 [INFO] portico_reads.service.provider.provider_read: Initializing ProviderRead
+2025-08-22 11:09:58,398 [INFO] db.portico_db: postgresql+psycopg2://porticoadmin:password@localhost:5432/portico
+2025-08-22 11:09:58,437 [INFO] portico_reads.service.provider.provider_read: Reading providers
+2025-08-22 11:09:58,501 [INFO] portico_reads.service.provider.provider_read: Closing DB connections
+2025-08-22 11:09:58,554 [INFO] aton_writes.service.upsert_organization: Transaction successful
+2025-08-22 11:09:58,554 [INFO] aton_writes.service.upsert_organization: Organization Kaptured Hospital created

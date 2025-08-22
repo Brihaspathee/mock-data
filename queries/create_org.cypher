@@ -2,6 +2,7 @@ CREATE (org:Organization{name:$org_name,
             aliasName:$alias_name, type: $type,
                          description: $description,
                          capitated: $capitated,
-                         pcpAssigment: $pcp_assignment
+                         pcpPractitionerRequired: $pcp_practitioner_required,
+                         atypical: $atypical, popularity: $popularity
         })
 RETURN org

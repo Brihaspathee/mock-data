@@ -3,11 +3,8 @@ from neo4j import Session, Driver, Transaction
 from db import AtonGraphDB
 from db.neo4j_transaction_manager import Neo4jTransactionManager
 from models.aton import Organization
-from repository import OrganizationRepository, QualificationRepository, identifier_repo
-from repository import organization_repo
+from repository import organization_repo, qualification_repo, identifier_repo, contact_repo
 import logging
-
-from repository.contact_repo import ContactRepository
 
 log = logging.getLogger(__name__)
 
@@ -26,6 +23,11 @@ def create_org(transaction: Transaction, organization: Organization):
     org_node = organization_repo.create_org(transaction, organization)
     for identifier in organization.identifiers:
         identifier_repo.create_identifier(transaction=transaction, org_node=org_node, identifier=identifier)
+    for qualification in organization.qualifications:
+        qualification_repo.create_qualification(transaction=transaction, org_node=org_node, qualification=qualification)
+    for contact in organization.contacts:
+        contact_repo.create_contact(transaction=transaction, org_node=org_node, contact=contact)
+    return org_node
 
 # def create_organization(organization:Organization):
 #     log.info("Creating organization")

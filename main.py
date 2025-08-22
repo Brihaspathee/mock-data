@@ -25,6 +25,7 @@ provider_read: ProviderRead = ProviderRead()
 providers: list[PPProv] = provider_read.read_provider()
 # Transform Providers into the shape that is compatible with Aton
 organizations: list[Organization] = transform_to_aton(providers)
+# Iterate through the list of organizations and write them to Aton
 for organization in organizations:
     aton_write: AtonWrite = AtonWrite()
     aton_write.write_to_aton(organization)

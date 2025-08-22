@@ -24,8 +24,10 @@ def transform_to_aton(providers: list[PPProv]) -> list[Organization]:
                                                   alias_name=provider.name,
                                                   description=provider.name,
                                                   type=provider.prov_type.type,
-                                                   capitated=False,
-                                                   pcpAssigment=False)
+                                                  capitated=False,
+                                                  pcp_practitioner_required=False,
+                                                  atypical=False,
+                                                  popularity=0.0)
         organization.identifiers.append(get_tin(provider))
         get_provider_attributes(provider, organization)
         for address in provider.addresses:
@@ -49,7 +51,7 @@ def get_provider_attributes(provider:PPProv, organization: Organization):
     # log.info("Getting Provider Attributes")
     # log.info(f"Getting the attribute structure: {settings.ATTRIBUTE_STRUCTURES}")
     for attribute in provider.attributes:
-        log.info(attribute.attribute_id)
+        # log.info(attribute.attribute_id)
         result: Result = get_attribute(attribute)
         if result.kind == "identifier":
             organization.identifiers.append(result.value)
