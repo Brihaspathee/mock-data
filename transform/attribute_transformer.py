@@ -104,11 +104,11 @@ def get_attribute(attribute:PPProvAttrib) -> Result :
         # log.info(f"Value Date:{value.value_date}")
         # log.info(f"Value Number:{value.value_number}")
         if value.value_date:
-            field_values[value.field_id] = value.value_date
+            field_values[str(value.field_id)] = value.value_date
         elif value.value_number:
-            field_values[value.field_id] = value.value_number
+            field_values[str(value.field_id)] = value.value_number
         else:
-            field_values[value.field_id] = value.value
+            field_values[str(value.field_id)] = value.value
     field_values = {str(k): v for k, v in field_values.items()}
     result: Result = build_node_data(attribute_structure, field_values)
     # log.info(f"Result: {result}")
