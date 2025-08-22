@@ -43,8 +43,7 @@ def get_tin(provider:PPProv):
                                  identifier_label="TIN",
                                  identifier_rel="HAS_TIN",
                                  value=provider.tin.tin,
-                                 legal_name=provider.tin.name,
-                                 sourced_from="Mock Data")
+                                 legal_name=provider.tin.name)
     return tin
 
 def get_provider_attributes(provider:PPProv, organization: Organization):

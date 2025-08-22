@@ -41,8 +41,7 @@ class Identifier:
                  state: str=None,
                  legal_name: str=None,
                  start_date:DateType=None,
-                 end_date:DateType=None,
-                 sourced_from: str = None,):
+                 end_date:DateType=None):
         self.identifier_type = identifier_type
         self.identifier_label = identifier_label
         self.identifier_rel = identifier_rel
@@ -51,7 +50,6 @@ class Identifier:
         self.legal_name = legal_name
         self.start_date = start_date
         self.end_date = end_date
-        self.sourced_from = sourced_from
 
     def __str__(self):
         """
