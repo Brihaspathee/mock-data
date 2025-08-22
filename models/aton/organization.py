@@ -63,7 +63,6 @@ class Organization:
             self.contacts = []
         else:
             self.contacts = contacts
-        self.element_id = ""
         self.name = name
         self.alias_name = alias_name
         self.description = description
@@ -72,3 +71,26 @@ class Organization:
         self.pcp_practitioner_required = pcp_practitioner_required
         self.atypical = atypical
         self.popularity = popularity
+
+    def __repr__(self):
+        """
+        Generate the official string representation of the Organization object.
+
+        This method returns a string that provides a formal representation of the Organization
+        object, including its main attributes, in a structured format. The returned string is
+        helpful for debugging and administrative purposes, offering a clear and concise overview
+        of the object's state.
+
+        :return: A string representing the Organization object with its detailed attributes and
+                 current state.
+        :rtype: str
+        """
+        return (f"<Organization( "
+                f"name={self.name}, "
+                f"alias_name={self.alias_name}, "
+                f"description={self.description},"
+                f"type={self.type}, "
+                f"capitated={self.capitated}, "
+                f"pcp_practitioner_required={self.pcp_practitioner_required}, "
+                f"atypical={self.atypical}, "
+                f"popularity={self.popularity})>")
