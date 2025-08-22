@@ -9,11 +9,16 @@ log = logging.getLogger(__name__)
 def create_qualification(transaction: Transaction, org_node, qualification: Qualification):
     with open("queries/create_qualification.cypher", "r") as f:
         query = f.read()
-    result = transaction.run(query, type=qualification.qualification_type,
-                         value=qualification.value,
-                         start_date=qualification.start_date,
-                         end_date=qualification.end_date,
-                         sourced_from=qualification.sourced_from)
+    result = transaction.run(query,
+                             type=qualification.qualification_type,
+                             value=qualification.value,
+                             issuer=qualification.issuer,
+                             state=qualification.state,
+                             status=qualification.status,
+                             level=qualification.level,
+                             specialty=qualification.specialty,
+                             start_date=qualification.start_date,
+                             end_date=qualification.end_date)
     # log.info(result)
     for record in result:
         # log.info(record)

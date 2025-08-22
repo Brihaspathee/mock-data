@@ -36,6 +36,9 @@ class Qualification:
                  value:str=None,
                  state:str=None,
                  issuer:str=None,
+                 status:str=None,
+                 level:str=None,
+                 specialty:str=None,
                  secondary_labels:list[str]=None,
                  start_date:DateType=None,
                  end_date:DateType=None):
@@ -43,6 +46,9 @@ class Qualification:
         self.value = value
         self.state = state
         self.issuer = issuer
+        self.status = status
+        self.level = level
+        self.specialty = specialty
         self.secondary_labels = secondary_labels
         self.start_date = start_date
         self.end_date = end_date
@@ -59,6 +65,9 @@ class Qualification:
                 f"value={self.value}, "
                 f"state={self.state}, "
                 f"issuer={self.issuer}, "
+                f"status={self.status}, "
+                f"level={self.level}, "
+                f"specialty={self.specialty},"
                 f"secondary_labels={self.secondary_labels}, "
                 f"start_date={self.start_date}, "
                 f"end_date={self.end_date})>")

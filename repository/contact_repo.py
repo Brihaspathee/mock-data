@@ -61,6 +61,7 @@ def create_telecom(transaction: Transaction,  contact_node, telecom: Telecom):
                          tty=telecom.tty,
                          after_hours_number=telecom.after_hours_number,
                          email=telecom.email,
+                         secure_email=telecom.secure_email,
                          website=telecom.website)
     for record in result:
         telecom_node = record["telecom"]
