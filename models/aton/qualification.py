@@ -4,32 +4,35 @@ from typing import Literal
 
 class Qualification:
     """
-    Represents a qualification entity with details about its type, value,
-    state, issuer, and other associated metadata.
+    Represents a qualification with information about its type, value, issuer, status, and relevant
+    details such as level, specialty, and validity period.
 
-    This class is designed to encapsulate the details about a qualification
-    that might represent credentials, certifications, licenses, or other forms
-    of verifiable qualifications. It includes attributes for metadata such as
-    the issuing entity, validity period, and additional labels for further
-    categorization.
+    This class is designed to encapsulate various attributes of a qualification. It is intended
+    to store information about the type of qualification, its current status, the entity or organization
+    that issued the qualification, and other optional metadata such as level, specialty, and
+    applicable dates.
 
-    :ivar qualification_type: Indicates the type or category of the qualification.
+    :ivar qualification_type: Specifies the type of qualification (e.g., certification, license).
     :type qualification_type: str
-    :ivar value: The value or unique identifier associated with the qualification.
-    :type value: str, optional
-    :ivar state: The current state or status of the qualification (e.g., active,
-        inactive, revoked).
-    :type state: str, optional
-    :ivar issuer: The entity or organization that issued the qualification.
-    :type issuer: str, optional
-    :ivar secondary_labels: A list of additional descriptors or labels providing
-        supplementary information about the qualification.
-    :type secondary_labels: list[str], optional
-    :ivar start_date: Indicates the start date from which the qualification is
-        valid.
-    :type start_date: DateType, optional
-    :ivar end_date: The expiry or end date of the qualification's validity.
-    :type end_date: DateType, optional
+    :ivar value: Optional value associated with the qualification (e.g., ID or unique identifier).
+    :type value: str or None
+    :ivar state: Optional state or region for which the qualification is relevant.
+    :type state: str or None
+    :ivar issuer: Optional issuer or organization responsible for issuing the qualification.
+    :type issuer: str or None
+    :ivar status: Optional current status of the qualification (e.g., active, expired).
+    :type status: str or None
+    :ivar level: Optional level or rank of the qualification (e.g., beginner, expert).
+    :type level: str or None
+    :ivar specialty: Optional area of specialization associated with the qualification.
+    :type specialty: str or None
+    :ivar secondary_labels: Optional secondary attributes or labels to group or categorize
+        the qualification.
+    :type secondary_labels: list[str] or None
+    :ivar start_date: Optional start date indicating the validity start of the qualification.
+    :type start_date: DateType or None
+    :ivar end_date: Optional end date indicating the validity end of the qualification.
+    :type end_date: DateType or None
     """
     def __init__(self,
                  qualification_type:str,

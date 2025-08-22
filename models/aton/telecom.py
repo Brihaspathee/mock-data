@@ -18,6 +18,8 @@ class Telecom:
     :type after_hours_number: str
     :ivar email: The email address.
     :type email: str
+    :ivar secure_email: A secure email address.
+    :type secure_email: str
     :ivar website: The website URL.
     :type website: str
     """
