@@ -1,6 +1,6 @@
 from neo4j import GraphDatabase
 from config import settings
-from repository import OrganizationRepository, IdentifierRepository
+from repository import OrganizationRepository
 from repository.contact_repo import ContactRepository
 from repository.qualification_repo import QualificationRepository
 
@@ -31,8 +31,8 @@ class AtonGraphDB:
     def get_org_repo(self):
         return OrganizationRepository(self.driver)
 
-    def get_identifier_repo(self):
-        return IdentifierRepository(self.driver)
+    # def get_identifier_repo(self):
+    #     return IdentifierRepository(self.driver)
 
     def get_qualification_repo(self):
         return QualificationRepository(self.driver)

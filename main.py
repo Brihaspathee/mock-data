@@ -1,3 +1,4 @@
+from aton_writes.service.aton_write import AtonWrite
 from db import AtonGraphDB, PorticoDB, DBUtils
 from config import settings
 from models.aton import Organization
@@ -23,7 +24,10 @@ log.info(f"Attributes JSON{settings.FLAT_CONFIG}")
 provider_read: ProviderRead = ProviderRead()
 providers: list[PPProv] = provider_read.read_provider()
 # Transform Providers into the shape that is compatible with Aton
-transform_to_aton(providers)
+organizations: list[Organization] = transform_to_aton(providers)
+for organization in organizations:
+    aton_write: AtonWrite = AtonWrite()
+    aton_write.write_to_aton(organization)
 
 
 

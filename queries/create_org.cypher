@@ -1,7 +1,7 @@
 CREATE (org:Organization{name:$org_name,
             aliasName:$alias_name, type: $type,
-                         description: $description, effectiveDate: $effective_date,
+                         description: $description,
                          capitated: $capitated,
-                         sourcedFrom: $sourced_from
+                         pcpAssigment: $pcp_assignment
         })
 RETURN org

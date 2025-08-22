@@ -26,11 +26,11 @@ class Organization:
     :type capitated: bool
     """
     def __init__(self, name: str,
-                 alias_name: str=None, description: str=None,
+                 alias_name: str=None,
+                 description: str=None,
                  type: str=None,
                  capitated: bool = False,
-                 effective_date: Date = None,
-                 sourced_from: str = None,
+                 pcpAssigment: bool = False,
                  identifiers=None,
                  qualifications: list[Qualification] | None =None,
                  contacts: list[Contact] | None =None,):
@@ -45,6 +45,5 @@ class Organization:
         self.alias_name = alias_name
         self.description = description
         self.type = type
-        self.effective_date = effective_date
         self.capitated = capitated
-        self.sourced_from = sourced_from
+        self.pcpAssigment = pcpAssigment

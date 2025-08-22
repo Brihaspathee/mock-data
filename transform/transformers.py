@@ -13,22 +13,26 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def transform_to_aton(providers: list[PPProv]):
+def transform_to_aton(providers: list[PPProv]) -> list[Organization]:
     # log.info(f"Transforming to Aton:{providers}" )
+    organizations: list[Organization] = []
     for provider in providers:
         # log_provider(provider)
         effective_date_str = "2023-01-01"
         effective_date = DBUtils.convert_date_to_neo4j_date(effective_date_str)
         organization: Organization = Organization(name=provider.name,
+                                                  alias_name=provider.name,
+                                                  description=provider.name,
                                                   type=provider.prov_type.type,
-                                                   effective_date=effective_date,
                                                    capitated=False,
-                                                   sourced_from="Mock Data")
+                                                   pcpAssigment=False)
         organization.identifiers.append(get_tin(provider))
         get_provider_attributes(provider, organization)
         for address in provider.addresses:
             organization.contacts.append(get_contact(address))
-        upsert_organization.create_organization(organization)
+        #upsert_organization.create_organization(organization)
+        organizations.append(organization)
+    return organizations
 
 
 def get_tin(provider:PPProv):
