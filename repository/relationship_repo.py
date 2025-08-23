@@ -1,11 +1,13 @@
+from typing import Any
+
 from neo4j import Transaction
 
 
 def create_relationship(transaction: Transaction,
-                        source_node,
-                        target_node,
-                        target_node_label,
-                        relationship_type):
+                        source_node: Any,
+                        target_node: Any,
+                        target_node_label: str,
+                        relationship_type: str) -> None:
     # log.info(f"Source node:{source_node.element_id}")
     # log.info(f"Target node:{target_node.element_id}")
     # log.info(f"Source label:{list(source_node.labels)[0]}")

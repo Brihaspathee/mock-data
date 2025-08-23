@@ -14,6 +14,21 @@ log = logging.getLogger(__name__)
 
 
 def transform_to_aton(providers: list[PPProv]) -> list[Organization]:
+    """
+    Transforms a list of PPProv providers into a list of Aton organizations.
+
+    This function takes a list of `PPProv` provider objects and performs a transformation to produce
+    a list of `Organization` objects that are compliant with the Aton data model.
+    Relevant attributes and relationships are extracted from each provider and appropriately mapped
+    to the organization object. It processes identifiers, addresses, and other provider attributes
+    required by the Aton organization format.
+
+    :param providers:
+        A list of `PPProv` instances representing the source provider data.
+    :return:
+        A list of `Organization` instances representing the transformed provider information in
+        the Aton format.
+    """
     # log.info(f"Transforming to Aton:{providers}" )
     organizations: list[Organization] = []
     for provider in providers:
@@ -37,7 +52,19 @@ def transform_to_aton(providers: list[PPProv]) -> list[Organization]:
     return organizations
 
 
-def get_tin(provider:PPProv):
+def get_tin(provider: PPProv) -> Identifier:
+    """
+    Gets the Tax Identification Number (TIN) information for the provided
+    provider and encapsulates it within an `Identifier` object.
+
+    :param provider: The provider object containing the TIN and associated
+        legal name.
+        :type provider: PPProv
+    :return: An `Identifier` object representing the TIN information,
+        including its type, label, relationship, value, and associated
+        legal name.
+    :rtype: Identifier
+    """
     # log.info("Getting TIN")
     tin: Identifier = Identifier(identifier_type="TIN",
                                  identifier_label="TIN",
@@ -47,6 +74,24 @@ def get_tin(provider:PPProv):
     return tin
 
 def get_provider_attributes(provider:PPProv, organization: Organization):
+    """
+    Retrieve and process attributes from a given provider and populate the organization's
+    identifiers and qualifications based on the attribute kinds.
+
+    This function iterates through the attributes of a provider and, depending on the
+    attribute kind, performs the following actions:
+    - If the attribute kind is "identifier", the attribute value is appended to the
+      organization's list of identifiers.
+    - If the attribute kind is "qualification" and the value is not None, it is appended
+      to the organization's list of qualifications.
+
+    :param provider: A provider object that contains attributes to be processed.
+    :type provider: PPProv
+    :param organization: An organization object where identifiers and qualifications
+        derived from the provider's attributes are stored.
+    :type organization: Organization
+    :return: None
+    """
     # log.info("Getting Provider Attributes")
     # log.info(f"Getting the attribute structure: {settings.ATTRIBUTE_STRUCTURES}")
     for attribute in provider.attributes:
@@ -60,6 +105,18 @@ def get_provider_attributes(provider:PPProv, organization: Organization):
 
 
 def get_contact(prov_addr: PPProvAddr) -> Contact:
+    """
+    Create a Contact object based on the provided provider address.
+
+    The function extracts the necessary information such as address type,
+    physical address, and phone information from the given provider address
+    to construct and return a Contact object.
+
+    :param prov_addr: The provider address from which the contact information
+        is to be retrieved and processed. Must be of type ``PPProvAddr``.
+    :return: A ``Contact`` object containing the use type, physical address,
+        and telecommunication details derived from the provider address.
+    """
     address: PPAddr = cast(PPAddr, prov_addr.address)
     contact_use = address.type
     # log.info(f"Contact Use: {contact_use}")
@@ -85,6 +142,21 @@ def get_address(prov_addr: PPAddr) -> Address:
     return address
 
 def get_phone(pp_addr: PPAddr) -> Telecom:
+    """
+    Extracts and formats phone-related information from the provided PPAddr object into a Telecom object.
+
+    This function iterates over the list of phone entries in the provided ``PPAddr``
+    object, extracting phone details based on their types (e.g., CELL, FAX, TTY, AFH).
+    It then populates the corresponding attributes in the ``Telecom`` object and
+    returns it.
+
+    :param pp_addr: The ``PPAddr`` object containing phone-related information.
+    :type pp_addr: PPAddr
+
+    :return: A ``Telecom`` object populated with phone number details categorized
+        by type (e.g., phone, fax, tty, after-hours number).
+    :rtype: Telecom
+    """
     telecom: Telecom = Telecom()
     for pp_addr_phone in pp_addr.phones:
         # log.info(f"Phone:{pp_addr_phone}")
