@@ -10,7 +10,23 @@ This module contains the logic for creating and managing identifiers
 for organizations."""
 
 
-def create_identifier(transaction:Transaction, parent_node, identifier: Identifier):
+def create_identifier(transaction: Transaction, parent_node: any, identifier: Identifier) -> None:
+    """
+    Executes a Cypher query to create an identifier node in the database and establishes a
+    relationship with the provided parent node.
+
+    :param transaction: The transaction object used to execute the Cypher query.
+        It facilitates communication with the database to ensure the operation is
+        executed within a transactional context.
+    :type transaction: Transaction
+    :param parent_node: The node with which the identifier node is to be connected.
+    :type parent_node: any
+    :param identifier: The identifier object containing details such as label,
+        value, start date, end date, legal name, and the relationship type to
+        establish with the parent node.
+    :type identifier: Identifier
+    :return: None.
+    """
     with open("queries/create_identifier.cypher", "r") as f:
         query = f.read()
     result = transaction.run(query, identifier_label=identifier.identifier_label,
