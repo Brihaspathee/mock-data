@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: test_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: portico
+      POSTGRES_USER: porticoadmin
+      POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U porticoadmin -d portico"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  neo4j:
+    image: neo4j:5.25
+    container_name: test_neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/test
+      NEO4J_PLUGINS: '["apoc"]'
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p test 'RETURN 1' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
