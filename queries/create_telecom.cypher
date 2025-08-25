@@ -1,4 +1,4 @@
-CREATE (telecom:Telecom{phone:$phone,
+CREATE (telecom:Telecom:MockDataTest{phone:$phone,
           fax: $fax,
           tty:$tty,
           afterHoursNumber: $after_hours_number,

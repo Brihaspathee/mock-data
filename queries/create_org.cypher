@@ -1,4 +1,4 @@
-CREATE (org:Organization{name:$org_name,
+CREATE (org:Organization:MockDataTest{name:$org_name,
             aliasName:$alias_name, type: $type,
                          description: $description,
                          capitated: $capitated,

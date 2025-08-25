@@ -1,3 +1,3 @@
-CREATE (contact:Contact{use:$use
+CREATE (contact:Contact:MockDataTest{use:$use
         })
 RETURN contact

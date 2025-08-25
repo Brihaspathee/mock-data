@@ -1,4 +1,4 @@
-CREATE (address:Address{streetAddress:$street_address,
+CREATE (address:Address:MockDataTest{streetAddress:$street_address,
           secondaryAddress: $secondary_address,
           city:$city,
           state: $state,

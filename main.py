@@ -2,11 +2,16 @@ from aton_writes.service.aton_write import AtonWrite
 from db import AtonGraphDB, PorticoDB, DBUtils
 from config import settings
 from models.aton import Organization
+from models.aton.product import Product
+from models.portico.pp_net import PPNetDict, PPNet
 from portico_reads.service.provider import provider_read
+from portico_reads.service.network import network_read
 from models.portico import Person
 from models.portico.pp_prov import PPProv
 from transform import transformers
-from transform.transformers import transform_to_aton
+from transform.transformers import transformer, transform_to_aton
+import transform.transform_provider
+import transform.transform_network
 import logging
 
 log = logging.getLogger(__name__)
@@ -22,12 +27,22 @@ def main():
     # Read the providers from Portico
     portico_db: PorticoDB = PorticoDB()
     portico_db.connect()
-    with portico_db.get_session() as session:
-        providers = provider_read.read_provider(session)
+    with (portico_db.get_session() as session):
+        networks: list[PPNet] = network_read.get_networks(session)
+        providers: list[PPProv] = provider_read.read_provider(session)
+        log.info(f"# of level 5 networks:{len(networks)}")
+        # for network in networks:
+        #     net_dict = network.to_dict()
+        #     log.info(f"Network: {net_dict}")
     # provider_read: ProviderRead = ProviderRead()
     # providers: list[PPProv] = provider_read.read_provider()
+    # Transform Networks into the shape that is compatible with Aton
+    products: list[Product] = transformer(networks)
+    for product in products:
+        aton_write: AtonWrite = AtonWrite()
+        aton_write.write_products_networks(product)
     # Transform Providers into the shape that is compatible with Aton
-    organizations: list[Organization] = transform_to_aton(providers)
+    organizations: list[Organization] = transformer(providers)
     # Iterate through the list of organizations and write them to Aton
     for organization in organizations:
         aton_write: AtonWrite = AtonWrite()

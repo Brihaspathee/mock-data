@@ -1,5 +1,5 @@
 CALL apoc.create.node(
-  ['Identifier', $identifier_label],
+  ['Identifier', 'MockDataTest', $identifier_label],
   {
     value: $value,
     startDate: coalesce($start_date, null),

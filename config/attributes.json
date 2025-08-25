@@ -1,46 +1,105 @@
 {
   "provider": {
-    "101": {
+    "502": {
       "category": "identifier",
       "labels": ["NPI"],
       "attr_type": "NPI",
       "relationship": "HAS_NPI",
       "name": "PROV_NPI",
       "field_mappings": {
-        "1001": "value",
-        "1002": "start_date",
-        "1003": "end_date",
-        "1004": "NOT-MAPPED"
+        "706": "value",
+        "708": "start_date",
+        "709": "end_date",
+        "707": "NOT-MAPPED"
       }
     },
-    "102": {
+    "101278": {
       "category": "qualification",
-      "labels": ["Certification"],
-      "attr_type": "AASM Certification",
+      "labels": ["Accreditation"],
+      "attr_type": "AASM Accreditation",
       "issuer": "American Academy of Sleep Medicine",
-      "name": "PROV_AASM_CERT",
+      "name": "PROV_AASM_ACCRED",
       "field_mappings": {
-        "1005": "NOT-MAPPED",
-        "1006": "start_date",
-        "1007": "end_date"
+        "101957": "NOT-MAPPED",
+        "101958": "start_date",
+        "102856": "end_date"
       },
       "conditions": [
         {
-          "field_id": "1005",
+          "field_id": "101957",
           "operator": "equals",
           "value": "YES"
         }
       ]
     },
-    "103": {
+    "100073": {
       "category": "identifier",
       "labels": ["MedicareID"],
       "attr_type": "MedicareID",
       "relationship": "HAS_MEDICARE_ID",
       "name": "PROV_MEDICARE_ID",
       "field_mappings": {
-        "1008": "value"
+        "100283": "value"
       }
+    },
+    "101277": {
+      "category": "qualification",
+      "labels": ["Accreditation"],
+      "attr_type": "AAAASF Accreditation",
+      "issuer": "American Association for Accreditation of Ambulatory Surgery Facilities",
+      "name": "PROV_AAAASF_ACCRED",
+      "field_mappings": {
+        "101955": "NOT-MAPPED",
+        "101956": "start_date",
+        "102795": "end_date"
+      },
+      "conditions": [
+        {
+          "field_id": "101955",
+          "operator": "equals",
+          "value": "Y"
+        }
+      ]
+    },
+    "100638": {
+      "category": "qualification",
+      "labels": ["Accreditation"],
+      "attr_type": "AAAHC Accreditation",
+      "issuer": "Accreditation Association for Ambulatory Health Care",
+      "name": "PROV_AAAHC_ACCRED",
+      "field_mappings": {
+        "101136": "NOT-MAPPED",
+        "101137": "start_date",
+        "102815": "end_date",
+        "104381": "level"
+      },
+      "conditions": [
+        {
+          "field_id": "101136",
+          "operator": "equals",
+          "value": "Y"
+        }
+      ]
+    },
+    "100640": {
+      "category": "qualification",
+      "labels": ["Accreditation"],
+      "attr_type": "ACR Accreditation",
+      "issuer": "American College of Radiology",
+      "name": "PROV_ACR_ACCRED",
+      "field_mappings": {
+        "101143": "NOT-MAPPED",
+        "101141": "start_date",
+        "102915": "end_date",
+        "104380": "level"
+      },
+      "conditions": [
+        {
+          "field_id": "101143",
+          "operator": "equals",
+          "value": "Y"
+        }
+      ]
     }
   },
   "practitioner": {

@@ -1,4 +1,4 @@
-CREATE (qual:Certification:Qualification{type:$type, value:$value,
+CREATE (qual:Certification:Qualification:MockDataTest{type:$type, value:$value,
                          issuer: $issuer,
                          state: $state,
                          status: $status,

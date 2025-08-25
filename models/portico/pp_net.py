@@ -6,12 +6,12 @@ from sqlalchemy.orm import relationship, declarative_base, Mapped, mapped_column
 Base = declarative_base()
 
 class PPNetDict(TypedDict, total=False):
-    id: int
+    id: str | None
     name: str
     description: str
-    type: str
     level: int
     children: list["PPNetDict"] | None
+
 
 class PPNet(Base):
 
@@ -45,7 +45,7 @@ class PPNet(Base):
 
     def to_dict(self, include_children:bool = True) -> PPNetDict:
         data: PPNetDict = {
-            "id": self.id,
+            "id": str(self.id) if self.id is not None else None,
             "name": self.name,
             "description": self.description,
             "level": self.level
