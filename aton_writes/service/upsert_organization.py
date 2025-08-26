@@ -8,8 +8,8 @@ import logging
 
 log = logging.getLogger(__name__)
 
-def create_organization(driver: Driver, organization:Organization):
-    transaction_manager = Neo4jTransactionManager(driver=driver)
+def create_organization(db:AtonGraphDB, organization:Organization):
+    transaction_manager = Neo4jTransactionManager(db=db)
     try:
         transaction_manager.execute_transaction(create_org, organization)
         log.info("Transaction successful")
@@ -17,7 +17,7 @@ def create_organization(driver: Driver, organization:Organization):
     except Exception as e:
         log.error("Transaction failed: {}".format(e))
     finally:
-        driver.close()
+        log.info("Transaction completed")
 
 def create_org(transaction: Transaction, organization: Organization):
     org_node = organization_repo.create_org(transaction, organization)

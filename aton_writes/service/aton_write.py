@@ -10,10 +10,8 @@ from aton_writes.service.upsert_product import create_product
 
 
 class AtonWrite:
-    def __init__(self):
-        db: AtonGraphDB = AtonGraphDB()
-        db.connect()
-        self.driver: Driver = db.driver
+    def __init__(self, db:AtonGraphDB):
+        self.db = db
 
     def write_to_aton(self, organization: Organization):
         """
@@ -28,7 +26,7 @@ class AtonWrite:
         :type organization: Organization
         :return: None
         """
-        create_organization(driver=self.driver, organization=organization)
+        create_organization(db=self.db, organization=organization)
 
     def write_products_networks(self, product: Product):
         """
@@ -44,4 +42,4 @@ class AtonWrite:
 
         :return: None
         """
-        create_product(driver=self.driver, product=product)
+        create_product(db=self.db, product=product)

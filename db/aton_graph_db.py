@@ -1,4 +1,6 @@
 from neo4j import GraphDatabase
+from requests import session
+
 from config import settings
 
 
@@ -23,7 +25,14 @@ class AtonGraphDB:
         return self.driver
 
     def close(self):
-        self.driver.close()
+        if self.driver:
+            self.driver.close()
+            self.driver = None
+
+    def get_session(self):
+        if self.driver is None:
+            raise RuntimeError("Driver not initialized, call connect() first")
+        return self.driver.session()
 
     # def get_org_repo(self):
     #     return OrganizationRepository(self.driver)

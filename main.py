@@ -38,15 +38,19 @@ def main():
     # providers: list[PPProv] = provider_read.read_provider()
     # Transform Networks into the shape that is compatible with Aton
     products: list[Product] = transformer(networks)
+    aton_db: AtonGraphDB = AtonGraphDB()
+    aton_db.connect()
+
     for product in products:
-        aton_write: AtonWrite = AtonWrite()
+        aton_write: AtonWrite = AtonWrite(aton_db)
         aton_write.write_products_networks(product)
     # Transform Providers into the shape that is compatible with Aton
     organizations: list[Organization] = transformer(providers)
     # Iterate through the list of organizations and write them to Aton
     for organization in organizations:
-        aton_write: AtonWrite = AtonWrite()
+        aton_write: AtonWrite = AtonWrite(aton_db)
         aton_write.write_to_aton(organization)
+    aton_db.close()
 
 if __name__ == "__main__":
     main()

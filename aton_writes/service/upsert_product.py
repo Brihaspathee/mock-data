@@ -1,6 +1,7 @@
 from neo4j import Driver, Transaction
 from neo4j.graph import Node
 
+from db import AtonGraphDB
 from db.neo4j_transaction_manager import Neo4jTransactionManager
 from models.aton.product import Product
 import logging
@@ -10,19 +11,19 @@ from repository import product_repo, network_repo
 log = logging.getLogger(__name__)
 
 
-def create_product(driver: Driver,product: Product):
+def create_product(db: AtonGraphDB,product: Product):
     """
     Executes a transaction to create a product in the database by using the provided transaction manager.
     This function ensures the creation operation is executed, logging success or failure messages, and
     handles resource cleanup by closing the database driver after the transaction completes.
 
-    :param driver: The database driver instance used to establish the connection to the database.
-    :type driver: Driver
+    :param db: The database instance used to establish the connection to the database.
+    :type db: Database
     :param product: The product entity containing information to be stored in the database.
     :type product: Product
     :return: None
     """
-    transaction_manager = Neo4jTransactionManager(driver=driver)
+    transaction_manager = Neo4jTransactionManager(db=db)
     try:
         transaction_manager.execute_transaction(create_prod_net, product)
         log.info("Transaction successful")
@@ -31,7 +32,7 @@ def create_product(driver: Driver,product: Product):
         log.error("Transaction failed: {}".format(e))
         log.error(e)
     finally:
-        driver.close()
+        log.info("Transaction completed")
 
 def create_prod_net(transaction: Transaction, product: Product):
     """
