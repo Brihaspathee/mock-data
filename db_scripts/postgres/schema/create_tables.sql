@@ -230,4 +230,59 @@ create table portown.pp_prov_attrib_values
 alter table portown.pp_prov_attrib_values
     owner to porticoadmin;
 
+CREATE TABLE portown.pp_prov_tin_loc (
+	id numeric NOT NULL,
+	tin_id numeric NULL,
+	address_id integer NOT NULL,
+	"name" varchar(100) NOT NULL,
+	"primary" char(1) NULL,
+	print_suppress char(1) NULL,
+	office_mgr varchar(100) NULL,
+	train char(1) NULL,
+	bus char(1) NULL,
+	transit_route varchar(100) NULL,
+	handicap varchar(100) NULL,
+	prov_tin_prc_cont_id numeric NULL,
+	CONSTRAINT pp_prov_tin_loc_pk PRIMARY KEY (id),
+	CONSTRAINT pp_prov_tin_loc_pp_addr_fk FOREIGN KEY (address_id) REFERENCES portown.pp_addr(id)
+);
+
+CREATE TABLE portown.pp_prov_loc (
+	prov_id integer NOT NULL,
+	loc_id integer NOT NULL,
+	name_usage char(1) NULL,
+	"primary" char(1) NULL,
+	start_date date NULL,
+	end_date date NULL,
+	print_supress char(1) NULL,
+	CONSTRAINT pp_prov_loc_pp_prov_fk FOREIGN KEY (prov_id) REFERENCES portown.pp_prov(id),
+	CONSTRAINT pp_prov_loc_pp_prov_tin_loc_fk FOREIGN KEY (loc_id) REFERENCES portown.pp_prov_tin_loc(id)
+);
+
+CREATE TABLE portown.pp_prov_net_cycle (
+	id integer NOT NULL,
+	prov_id integer NOT NULL,
+	net_id numeric NOT NULL,
+	status varchar NOT NULL,
+	start_date date NOT NULL,
+	end_date date NOT NULL,
+	CONSTRAINT pp_prov_net_cycle_pk PRIMARY KEY (id),
+	CONSTRAINT pp_prov_net_cycle_pp_prov_fk FOREIGN KEY (prov_id) REFERENCES portown.pp_prov(id),
+	CONSTRAINT pp_prov_net_cycle_pp_net_fk FOREIGN KEY (net_id) REFERENCES portown.pp_net(id)
+);
+
+CREATE TABLE portown.pp_prov_net_loc_cycle (
+	id integer NOT NULL,
+	prov_net_cycle_id integer NOT NULL,
+	prov_id integer NOT NULL,
+	loc_id integer NOT NULL,
+	start_date date NOT NULL,
+	end_date date NOT NULL,
+	"primary" char(1) NOT NULL,
+	CONSTRAINT pp_prov_net_loc_cycle_pk PRIMARY KEY (id),
+	CONSTRAINT pp_prov_net_loc_cycle_pp_prov_net_cycle_fk FOREIGN KEY (prov_net_cycle_id) REFERENCES portown.pp_prov_net_cycle(id),
+	CONSTRAINT pp_prov_net_loc_cycle_pp_prov_fk FOREIGN KEY (prov_id) REFERENCES portown.pp_prov(id),
+	CONSTRAINT pp_prov_net_loc_cycle_pp_prov_tin_loc_fk FOREIGN KEY (loc_id) REFERENCES portown.pp_prov_tin_loc(id)
+);
+
 
