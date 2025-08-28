@@ -64,6 +64,12 @@ class PPProv(Base):
 
     attributes: Mapped[List["PPProvAttrib"]] = relationship("PPProvAttrib", back_populates="provider")
 
+    locations = relationship("PPProvTinLoc",
+                             back_populates="provider")
+
+    networks = relationship("PPProvNetCycle",
+                            back_populates="provider")
+
     def __repr__(self):
 
         """
