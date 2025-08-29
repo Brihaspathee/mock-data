@@ -1,4 +1,4 @@
-from models.portico import PPProv
+from models.portico.pp_prov import PPProv
 import logging
 
 log = logging.getLogger(__name__)
@@ -30,3 +30,11 @@ def log_provider(provider: PPProv):
             log.info(value.field)
             log.info(value.value)
             log.info(value.value_date)
+    for location in provider.locations:
+        log.info(f"Locations associated with the Provider - {location}")
+    for network in provider.networks:
+        log.info(f"Network cycle id - {network.id}")
+        log.info(f"Network in the cycle - {network.network}")
+        for loc_cycle in network.loc_cycles:
+            log.info(f"Network location cycle {loc_cycle}")
+            log.info(f"Location in the cycle - {loc_cycle.location}")

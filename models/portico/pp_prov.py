@@ -4,9 +4,13 @@ from sqlalchemy.orm import relationship, Mapped
 from models.portico.base import Base
 from typing import List, TYPE_CHECKING
 
+
 if TYPE_CHECKING:
     from models.portico.pp_prov_addr import PPProvAddr
     from models.portico.pp_prov_attrib import PPProvAttrib
+    from models.portico.pp_prov_loc import PPProvLoc
+    from models.portico.pp_prov_tin_loc import PPProvTinLoc
+
 
 class PPProv(Base):
     """
@@ -64,8 +68,15 @@ class PPProv(Base):
 
     attributes: Mapped[List["PPProvAttrib"]] = relationship("PPProvAttrib", back_populates="provider")
 
-    locations = relationship("PPProvTinLoc",
-                             back_populates="provider")
+    # Association table mapping
+    prov_locs: Mapped[List["PPProvLoc"]] = relationship("PPProvLoc", back_populates="provider")
+
+    # Many-to-many: provider -> locations via pp_prov_loc
+    locations: Mapped[List["PPProvTinLoc"]] = relationship(
+        "PPProvTinLoc",
+        secondary="portown.pp_prov_loc"
+        # back_populates="providers"
+    )
 
     networks = relationship("PPProvNetCycle",
                             back_populates="provider")

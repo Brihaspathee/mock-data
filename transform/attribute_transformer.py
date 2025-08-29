@@ -3,7 +3,7 @@ from typing import Union, Literal, Any
 from models.aton.identifier import IdentifierResult
 from models.aton.qualification import QualificationResult
 from config import settings
-from models.portico import PPProvAttrib
+from models.portico.pp_prov_attrib import PPProvAttrib
 import logging
 
 log = logging.getLogger(__name__)

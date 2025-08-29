@@ -1,8 +1,14 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import Column, Integer, ForeignKey, String
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
+from models.portico.base import Base
+
+# if TYPE_CHECKING:
+#     from models.portico import PPNet
 
 
-class PPProvNetCycle:
+class PPProvNetCycle(Base):
 
     __tablename__ = "pp_prov_net_cycle"
     __table_args__ = {"schema": "portown"}
@@ -14,4 +20,4 @@ class PPProvNetCycle:
 
     provider = relationship("PPProv", back_populates="networks")
     network = relationship("PPNet")
-    loc_cycles = relationship("PPProvNetLocCycle", back_populates="network_cycle")
+    loc_cycles = relationship("PPProvNetLocCycle", back_populates="prov_net_cycle")

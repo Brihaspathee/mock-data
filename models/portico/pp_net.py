@@ -1,9 +1,8 @@
 from typing import TypedDict, Optional
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, declarative_base, Mapped, mapped_column
-
-Base = declarative_base()
+from sqlalchemy.orm import relationship, Mapped, mapped_column
+from models.portico.base import Base
 
 class PPNetDict(TypedDict, total=False):
     id: str | None

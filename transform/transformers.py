@@ -4,7 +4,12 @@ from neo4j.time import DateType
 from config import settings
 from db import DBUtils
 from models.aton.product import Product
-from models.portico import PPProv, PPProvAttrib, PPProvAddr, PPAddr, PPPhones, PPAddrPhones
+from models.portico.pp_prov import PPProv
+from models.portico.pp_prov_attrib import PPProvAttrib
+from models.portico.pp_prov_addr import PPProvAddr
+from models.portico.pp_addr import PPAddr
+from models.portico.pp_phones import PPPhones
+from models.portico.pp_addr_phones import PPAddrPhones
 from models.aton import Organization, Identifier, Qualification, Person, Telecom, Address, Contact
 from aton_writes.service import upsert_organization
 from models.portico.pp_net import PPNetDict, PPNet
