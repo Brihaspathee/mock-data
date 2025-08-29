@@ -18,8 +18,8 @@ create table portown.fmg_attribute_types
     description varchar
 );
 
-alter table portown.fmg_attribute_types
-    owner to porticoadmin;
+-- alter table portown.fmg_attribute_types
+--     owner to porticoadmin;
 
 -- 2. Create FMG_ATTRIBUTE_FIELDS table
 create table portown.fmg_attribute_fields
@@ -35,8 +35,8 @@ create table portown.fmg_attribute_fields
     datatype     varchar not null
 );
 
-alter table portown.fmg_attribute_fields
-    owner to porticoadmin;
+-- alter table portown.fmg_attribute_fields
+--     owner to porticoadmin;
 
 -- 3. Create PP_PROV_TIN table
 create table portown.pp_prov_tin
@@ -48,8 +48,8 @@ create table portown.pp_prov_tin
     tin  varchar not null
 );
 
-alter table portown.pp_prov_tin
-    owner to porticoadmin;
+-- alter table portown.pp_prov_tin
+--     owner to porticoadmin;
 
 
 -- 4. Create PP_PROV_TYPE table
@@ -76,8 +76,8 @@ create table portown.pp_spec
     site_visit_req varchar not null
 );
 
-alter table portown.pp_spec
-    owner to porticoadmin;
+-- alter table portown.pp_spec
+--     owner to porticoadmin;
 
 -- 6. Create PP_ADDR table
 create table portown.pp_addr
@@ -99,8 +99,8 @@ create table portown.pp_addr
     fips       varchar
 );
 
-alter table portown.pp_addr
-    owner to porticoadmin;
+-- alter table portown.pp_addr
+--     owner to porticoadmin;
 
 -- 6.5. Create PP_PROV_TIN_LOC
 CREATE TABLE portown.pp_prov_tin_loc (
@@ -132,8 +132,8 @@ create table portown.pp_phones
     number    varchar not null
 );
 
-alter table portown.pp_phones
-    owner to porticoadmin;
+-- alter table portown.pp_phones
+--     owner to porticoadmin;
 
 -- 8. Create PP_PROV table
 create table portown.pp_prov
@@ -156,8 +156,8 @@ create table portown.pp_prov
             references portown.pp_spec
 );
 
-alter table portown.pp_prov
-    owner to porticoadmin;
+-- alter table portown.pp_prov
+--     owner to porticoadmin;
 
 -- 9. Create PP_ADDR_PHONES table
 create table portown.pp_addr_phones
@@ -173,8 +173,8 @@ create table portown.pp_addr_phones
             references portown.pp_phones
 );
 
-alter table portown.pp_addr_phones
-    owner to porticoadmin;
+-- alter table portown.pp_addr_phones
+--     owner to porticoadmin;
 
 -- 10. Create PP_PROV_ADDR table
 create table portown.pp_prov_addr
@@ -190,8 +190,8 @@ create table portown.pp_prov_addr
             references portown.pp_addr
 );
 
-alter table portown.pp_prov_addr
-    owner to porticoadmin;
+-- alter table portown.pp_prov_addr
+--     owner to porticoadmin;
 
 -- 11. Create PP_PROV_ATTRIB table
 create table portown.pp_prov_attrib
@@ -207,8 +207,8 @@ create table portown.pp_prov_attrib
             references portown.fmg_attribute_types
 );
 
-alter table portown.pp_prov_attrib
-    owner to porticoadmin;
+-- alter table portown.pp_prov_attrib
+--     owner to porticoadmin;
 
 -- 12. Create PP_PROV_ATTRIB_VALUES table
 create table portown.pp_prov_attrib_values
@@ -227,26 +227,10 @@ create table portown.pp_prov_attrib_values
     value_number      numeric
 );
 
-alter table portown.pp_prov_attrib_values
-    owner to porticoadmin;
+-- alter table portown.pp_prov_attrib_values
+--     owner to porticoadmin;
 
-CREATE TABLE portown.pp_prov_tin_loc (
-	id numeric NOT NULL,
-	tin_id numeric NULL,
-	address_id integer NOT NULL,
-	"name" varchar(100) NOT NULL,
-	"primary" char(1) NULL,
-	print_suppress char(1) NULL,
-	office_mgr varchar(100) NULL,
-	train char(1) NULL,
-	bus char(1) NULL,
-	transit_route varchar(100) NULL,
-	handicap varchar(100) NULL,
-	prov_tin_prc_cont_id numeric NULL,
-	CONSTRAINT pp_prov_tin_loc_pk PRIMARY KEY (id),
-	CONSTRAINT pp_prov_tin_loc_pp_addr_fk FOREIGN KEY (address_id) REFERENCES portown.pp_addr(id)
-);
-
+-- 13. Create PP_PROV_LOC table
 CREATE TABLE portown.pp_prov_loc (
 	prov_id integer NOT NULL,
 	loc_id integer NOT NULL,
@@ -259,6 +243,8 @@ CREATE TABLE portown.pp_prov_loc (
 	CONSTRAINT pp_prov_loc_pp_prov_tin_loc_fk FOREIGN KEY (loc_id) REFERENCES portown.pp_prov_tin_loc(id)
 );
 
+-- 13. Create PP_PROV_NET_CYCLE table
+
 CREATE TABLE portown.pp_prov_net_cycle (
 	id integer NOT NULL,
 	prov_id integer NOT NULL,
@@ -270,6 +256,8 @@ CREATE TABLE portown.pp_prov_net_cycle (
 	CONSTRAINT pp_prov_net_cycle_pp_prov_fk FOREIGN KEY (prov_id) REFERENCES portown.pp_prov(id),
 	CONSTRAINT pp_prov_net_cycle_pp_net_fk FOREIGN KEY (net_id) REFERENCES portown.pp_net(id)
 );
+
+-- 13. Create PP_PROV_NET_LOC_CYCLE table
 
 CREATE TABLE portown.pp_prov_net_loc_cycle (
 	id integer NOT NULL,

@@ -251,3 +251,38 @@ INSERT INTO portown.pp_prov_attrib_values (id,prov_attribute_id,field_id,value,v
 	 (3,1,707,'type 1',NULL,NULL),
 	 (6,3,100283,'FL34634359',NULL,NULL);
 
+-- 13. Insert data into PP_PROV_TIN_LOC
+INSERT INTO portown.pp_prov_tin_loc (id,tin_id,address_id,"name","primary",print_suppress,office_mgr,train,bus,transit_route,handicap,prov_tin_prc_cont_id) VALUES
+	 (1,1,3,'Lone Star Family Health Center','N','N','Tim Miller','N',NULL,NULL,NULL,NULL),
+	 (2,1,4,'Bluebonnet Community Clinic','N','N','Sam Stein','N',NULL,NULL,NULL,NULL),
+	 (3,1,5,'North Texas Regional Medical Center','N','N','John Last','N',NULL,NULL,NULL,NULL),
+	 (4,1,6,'Rio Grande Valley Children’s Hospital','N','N','David Thompson','N',NULL,NULL,NULL,NULL),
+	 (5,1,7,'Hill Country Wellness Center','N','N','Sarah Longwell','N',NULL,NULL,NULL,NULL);
+
+-- 14. Insert data into PP_PROV_LOC
+INSERT INTO portown.pp_prov_loc (prov_id,loc_id,name_usage,"primary",start_date,end_date,print_supress) VALUES
+	 (1,1,NULL,'N',NULL,NULL,NULL),
+	 (1,2,NULL,'N',NULL,NULL,NULL),
+	 (1,3,NULL,'Y',NULL,NULL,NULL),
+	 (1,4,NULL,'N',NULL,NULL,NULL),
+	 (1,5,NULL,'N',NULL,NULL,NULL);
+
+-- 15. Insert data into PP_PROV_NET_CYCLE
+INSERT INTO portown.pp_prov_net_cycle (id,prov_id,net_id,status,start_date,end_date) VALUES
+	 (1,1,3258,'PAR','2001-06-01','4000-01-01'),
+	 (2,1,7723,'PAR','2005-01-01','2018-12-31'),
+	 (3,1,7723,'PAR','2020-01-01','4000-01-01'),
+	 (4,1,14694,'PAR','2015-01-01','4000-01-01');
+
+-- 16. Insert data into PP_PROV_NET_LOC_CYCLE
+INSERT INTO portown.pp_prov_net_loc_cycle (id,prov_net_cycle_id,prov_id,loc_id,start_date,end_date,"primary") VALUES
+	 (1,1,1,1,'2001-06-01','2010-10-31','N'),
+	 (2,1,1,1,'2011-07-01','4000-01-01','Y'),
+	 (3,1,1,2,'2015-08-01','4000-01-01','N'),
+	 (4,2,1,3,'2005-01-01','2018-12-31','N'),
+	 (5,3,1,4,'2020-01-01','4000-01-01','N'),
+	 (6,4,1,5,'2015-01-01','4000-01-01','N'),
+	 (7,4,1,4,'2020-01-01','4000-01-01','N');
+
+
+
