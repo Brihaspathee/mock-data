@@ -30,8 +30,8 @@ def log_provider(provider: PPProv):
             log.info(value.field)
             log.info(value.value)
             log.info(value.value_date)
-    for location in provider.locations:
-        log.info(f"Locations associated with the Provider - {location}")
+    for prov_loc in provider.prov_locs:
+        log.info(f"Locations associated with the Provider - {prov_loc.location}")
     for network in provider.networks:
         log.info(f"Network cycle id - {network.id}")
         log.info(f"Network in the cycle - {network.network}")

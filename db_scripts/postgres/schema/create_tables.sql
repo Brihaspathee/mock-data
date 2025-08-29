@@ -62,8 +62,8 @@ create table portown.pp_prov_type
     category varchar not null
 );
 
-alter table portown.pp_prov_type
-    owner to porticoadmin;
+-- alter table portown.pp_prov_type
+--     owner to porticoadmin;
 
 -- 5. Create PP_SPEC table
 create table portown.pp_spec

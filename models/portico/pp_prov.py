@@ -72,11 +72,12 @@ class PPProv(Base):
     prov_locs: Mapped[List["PPProvLoc"]] = relationship("PPProvLoc", back_populates="provider")
 
     # Many-to-many: provider -> locations via pp_prov_loc
-    locations: Mapped[List["PPProvTinLoc"]] = relationship(
-        "PPProvTinLoc",
-        secondary="portown.pp_prov_loc"
-        # back_populates="providers"
-    )
+    # locations: Mapped[List["PPProvTinLoc"]] = relationship(
+    #     "PPProvTinLoc",
+    #     secondary="portown.pp_prov_loc",
+    #     viewonly = True,
+    #     overlaps = "prov_locs,provider"
+    # )
 
     networks = relationship("PPProvNetCycle",
                             back_populates="provider")

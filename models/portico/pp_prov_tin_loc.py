@@ -19,10 +19,10 @@ class PPProvTinLoc(Base):
 
     prov_locs: Mapped[List["PPProvLoc"]] = relationship("PPProvLoc", back_populates="location")
 
-    providers: Mapped[List["PPProv"]] = relationship(
-        "PPProv",
-        secondary="portown.pp_prov_loc"
-    )
+    # providers: Mapped[List["PPProv"]] = relationship(
+    #     "PPProv",
+    #     secondary="portown.pp_prov_loc"
+    # )
 
     def __repr__(self):
         """

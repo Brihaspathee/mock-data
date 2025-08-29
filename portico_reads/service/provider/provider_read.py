@@ -1,6 +1,7 @@
 from sqlalchemy import select, Sequence
 from sqlalchemy.orm import joinedload, Session
 
+from models.portico import PPProvTinLoc
 from models.portico.pp_prov import PPProv
 from models.portico.pp_addr import PPAddr
 from models.portico.pp_prov_addr import PPProvAddr
@@ -10,6 +11,7 @@ from models.portico.pp_prov_tin import PPProvTIN
 from models.portico.pp_net import PPNet
 
 from models.portico.pp_prov_attrib import PPProvAttrib
+from models.portico.pp_prov_loc import PPProvLoc
 import logging
 
 from models.portico.pp_prov_net_cycle import PPProvNetCycle
@@ -30,7 +32,7 @@ def read_provider(session:Session) -> list[PPProv] | None:
             joinedload(PPProv.tin),
             joinedload(PPProv.attributes).joinedload(PPProvAttrib.attribute_type),
             joinedload(PPProv.attributes).joinedload(PPProvAttrib.values).joinedload(PPProvAttribValues.field),
-            joinedload(PPProv.locations),
+            joinedload(PPProv.prov_locs).joinedload(PPProvLoc.location),
             joinedload(PPProv.networks).joinedload(PPProvNetCycle.loc_cycles).joinedload(PPProvNetLocCycle.location)
         )
     )
