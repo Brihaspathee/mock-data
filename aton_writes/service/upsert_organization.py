@@ -1,6 +1,7 @@
 from neo4j import Session, Driver, Transaction
 from neo4j.graph import Node, Graph
 
+import models
 from db.neo4j_transaction_manager import Neo4jTransactionManager
 from models.aton import Organization
 from models.aton.role_location import RoleLocation
