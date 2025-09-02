@@ -42,7 +42,7 @@ def create_identifier(transaction: Transaction, parent_node: any, identifier: Id
         labels = list(identifier_node.labels)
         # log.info(labels)
         create_relationship(transaction, parent_node, identifier_node, f"Identifier:{identifier.identifier_label}",
-                            identifier.identifier_rel)
+                            identifier.identifier_rel, props={})
 
 
 

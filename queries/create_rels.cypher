@@ -1,7 +1,7 @@
 CALL apoc.cypher.doIt(
   'MATCH (o:' + $source_label + '), (n:' + $target_label + ')
    WHERE elementId(o) = $source_element_id AND elementId(n) = $target_element_id
-   CALL apoc.create.relationship(o, $rel_type, {}, n) YIELD rel
+   CALL apoc.create.relationship(o, $rel_type, coalesce($props, {}), n) YIELD rel
    RETURN type(rel) AS rel_type,
           labels(o) AS from_labels,
           id(o) AS from_element_id,
@@ -13,7 +13,8 @@ CALL apoc.cypher.doIt(
     source_element_id: $source_element_id,
     target_label: $target_label,
     target_element_id: $target_element_id,
-    rel_type: $rel_type
+    rel_type: $rel_type,
+    props: $props
   }
 ) YIELD value
 RETURN value

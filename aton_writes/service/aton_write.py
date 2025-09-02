@@ -1,7 +1,6 @@
 from neo4j import Driver
 from sqlalchemy.orm import Session
 
-from db import AtonGraphDB
 from db.neo4j_transaction_manager import Neo4jTransactionManager
 from models.aton import Organization
 from aton_writes.service.upsert_organization import create_organization
@@ -10,8 +9,6 @@ from aton_writes.service.upsert_product import create_product
 
 
 class AtonWrite:
-    def __init__(self, db:AtonGraphDB):
-        self.db = db
 
     def write_to_aton(self, organization: Organization):
         """
@@ -26,7 +23,7 @@ class AtonWrite:
         :type organization: Organization
         :return: None
         """
-        create_organization(db=self.db, organization=organization)
+        create_organization(organization=organization)
 
     def write_products_networks(self, product: Product):
         """
@@ -42,4 +39,4 @@ class AtonWrite:
 
         :return: None
         """
-        create_product(db=self.db, product=product)
+        create_product(product=product)

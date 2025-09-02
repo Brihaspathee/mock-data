@@ -1,6 +1,7 @@
 from utils.log_provider import log_providers
 from aton_writes.service.aton_write import AtonWrite
-from db import AtonGraphDB, PorticoDB, DBUtils
+from db import PorticoDB, DBUtils
+from db.aton_graph_db import get_driver, close_driver
 from config import settings
 from models.aton import Organization
 from models.aton.product import Product
@@ -29,28 +30,30 @@ def main():
     portico_db: PorticoDB = PorticoDB()
     portico_db.connect()
     with (portico_db.get_session() as session):
-        # networks: list[PPNet] = network_read.get_networks(session)
+        networks: list[PPNet] = network_read.get_networks(session)
         providers: list[PPProv] = provider_read.read_provider(session)
-        log_providers(providers)
+        # log_providers(providers)
         # log.info(f"# of level 5 networks:{len(networks)}")
     # Transform Networks into the shape that is compatible with Aton
-    # products: list[Product] = transformer(networks)
+    products: list[Product] = transformer(networks)
     # aton_db: AtonGraphDB = AtonGraphDB()
     # aton_db.connect()
     #
-    # for product in products:
-    #     aton_write: AtonWrite = AtonWrite(aton_db)
-    #     aton_write.write_products_networks(product)
+    for product in products:
+        aton_write: AtonWrite = AtonWrite()
+        aton_write.write_products_networks(product)
     # # Transform Providers into the shape that is compatible with Aton
-    # organizations: list[Organization] = transformer(providers)
+    organizations: list[Organization] = transformer(providers)
     # # Iterate through the list of organizations and write them to Aton
-    # for organization in organizations:
-    #     aton_write: AtonWrite = AtonWrite(aton_db)
-    #     aton_write.write_to_aton(organization)
+    for organization in organizations:
+        aton_write: AtonWrite = AtonWrite()
+        aton_write.write_to_aton(organization)
     # aton_db.close()
 
 if __name__ == "__main__":
+    driver = get_driver()
     main()
+    close_driver()
 
 
 

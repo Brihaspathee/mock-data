@@ -21,7 +21,7 @@ def _(network:PPNet) -> Product | None:
     :rtype: Product | None
     """
     net_dict: PPNetDict = network.to_dict()
-    log.info(f"Transforming network {net_dict}")
+    # log.info(f"Transforming network {net_dict}")
     product: Product = Product(
         code=net_dict["id"],
         name=net_dict["name"],

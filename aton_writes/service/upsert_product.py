@@ -1,7 +1,6 @@
 from neo4j import Driver, Transaction
 from neo4j.graph import Node
 
-from db import AtonGraphDB
 from db.neo4j_transaction_manager import Neo4jTransactionManager
 from models.aton.product import Product
 import logging
@@ -11,7 +10,7 @@ from repository import product_repo, network_repo
 log = logging.getLogger(__name__)
 
 
-def create_product(db: AtonGraphDB,product: Product):
+def create_product(product: Product):
     """
     Executes a transaction to create a product in the database by using the provided transaction manager.
     This function ensures the creation operation is executed, logging success or failure messages, and
@@ -23,16 +22,16 @@ def create_product(db: AtonGraphDB,product: Product):
     :type product: Product
     :return: None
     """
-    transaction_manager = Neo4jTransactionManager(db=db)
+    transaction_manager = Neo4jTransactionManager()
     try:
         transaction_manager.execute_transaction(create_prod_net, product)
-        log.info("Transaction successful")
-        log.info("Product {} created".format(product.name))
+        # log.info("Transaction successful")
+        # log.info("Product {} created".format(product.name))
     except Exception as e:
         log.error("Transaction failed: {}".format(e))
         log.error(e)
-    finally:
-        log.info("Transaction completed")
+    # finally:
+        # log.info("Transaction completed")
 
 def create_prod_net(transaction: Transaction, product: Product):
     """

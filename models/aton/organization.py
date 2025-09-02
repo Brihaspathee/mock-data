@@ -2,6 +2,7 @@ from neo4j.time import Date
 
 from models.aton import Qualification, Contact
 from models.aton.identifier import Identifier
+from models.aton.role_instance import RoleInstance
 
 
 class Organization:
@@ -71,6 +72,8 @@ class Organization:
         self.pcp_practitioner_required = pcp_practitioner_required
         self.atypical = atypical
         self.popularity = popularity
+
+    roleInstances: list[RoleInstance] = []
 
     def __repr__(self):
         """

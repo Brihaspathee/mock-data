@@ -47,5 +47,5 @@ def create_qualification(transaction: Transaction, parent_node: object, qualific
                             source_node=parent_node,
                             target_node=qual_node,
                             target_node_label = f"{list(qual_node.labels)[0]}:{list(qual_node.labels)[1]}",
-                            relationship_type="HAS_QUALIFICATION")
+                            relationship_type="HAS_QUALIFICATION", props={})
 

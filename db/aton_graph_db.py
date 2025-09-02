@@ -7,7 +7,7 @@ from config import settings
 # from py2neo import Graph, database
 
 
-class AtonGraphDB:
+class _AtonGraphDB:
     def __init__(self):
         self.driver = None
 
@@ -15,13 +15,14 @@ class AtonGraphDB:
         # define_env()
         # secrets = fetch_secrets()
         # print(secrets)
-        self.driver = GraphDatabase.driver(settings.NEO4J["url"],
-                              auth=(settings.NEO4J["username"],settings.NEO4J["password"]),
-                              database=settings.NEO4J["database"])
-        # graph = Graph(secrets["ss.neo4j.url"],
-        #               auth=(secrets["ss.neo4j.username"],secrets["ss.neo4j.password"]),
-        #               database=secrets["ss.neo4j.database"])
-        self.driver.verify_connectivity()
+        if self.driver is None:
+            self.driver = GraphDatabase.driver(settings.NEO4J["url"],
+                                  auth=(settings.NEO4J["username"],settings.NEO4J["password"]),
+                                  database=settings.NEO4J["database"])
+            # graph = Graph(secrets["ss.neo4j.url"],
+            #               auth=(secrets["ss.neo4j.username"],secrets["ss.neo4j.password"]),
+            #               database=secrets["ss.neo4j.database"])
+            self.driver.verify_connectivity()
         return self.driver
 
     def close(self):
@@ -45,6 +46,19 @@ class AtonGraphDB:
 
     # def get_contact_repo(self):
     #     return ContactRepository(self.driver)
+
+# === Module-level singleton instance ===
+_driver_instance = _AtonGraphDB()
+
+# === Public API functions ===
+def get_driver():
+    return _driver_instance.connect()
+
+def get_session():
+    return _driver_instance.get_session()
+
+def close_driver():
+    _driver_instance.close()
 
 
 

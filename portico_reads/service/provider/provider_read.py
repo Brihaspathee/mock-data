@@ -32,7 +32,12 @@ def read_provider(session:Session) -> list[PPProv] | None:
             joinedload(PPProv.tin),
             joinedload(PPProv.attributes).joinedload(PPProvAttrib.attribute_type),
             joinedload(PPProv.attributes).joinedload(PPProvAttrib.values).joinedload(PPProvAttribValues.field),
-            joinedload(PPProv.prov_locs).joinedload(PPProvLoc.location),
+            joinedload(PPProv.prov_locs)
+                .joinedload(PPProvLoc.location)
+                .joinedload(PPProvTinLoc.address)
+                .joinedload(PPAddr.phones)
+                .joinedload(PPAddrPhones.phone),
+            joinedload(PPProv.networks).joinedload(PPProvNetCycle.network),
             joinedload(PPProv.networks).joinedload(PPProvNetCycle.loc_cycles).joinedload(PPProvNetLocCycle.location)
         )
     )

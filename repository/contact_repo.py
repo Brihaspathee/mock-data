@@ -8,7 +8,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def create_contact(transaction: Transaction, parent_node: Node, contact: Contact) -> Node | None:
+def create_contact(transaction: Transaction, parent_node: Node, contact: Contact, relationship_type: str) -> Node | None:
     """
     Creates a contact node in the database and establishes its relationships and associated
     information, such as address and telecom, if applicable.
@@ -31,7 +31,7 @@ def create_contact(transaction: Transaction, parent_node: Node, contact: Contact
                         source_node=parent_node,
                         target_node=contact_node,
                         target_node_label=list(contact_node.labels)[0],
-                        relationship_type="HAS_ORGANIZATIONAL_CONTACT")
+                        relationship_type=relationship_type, props={})
         if contact.address is not None:
             create_address(transaction=transaction,
                            contact_node=contact_node,
@@ -78,7 +78,8 @@ def create_address(transaction: Transaction, contact_node: Node, address: Addres
                             source_node=contact_node,
                             target_node=address_node,
                             target_node_label=list(address_node.labels)[0],
-                            relationship_type="ADDRESS_IS")
+                            relationship_type="ADDRESS_IS",
+                            props={})
 
 
 def create_telecom(transaction: Transaction, contact_node: Node, telecom: Telecom) -> None:
@@ -114,5 +115,5 @@ def create_telecom(transaction: Transaction, contact_node: Node, telecom: Teleco
                             source_node=contact_node,
                             target_node=telecom_node,
                             target_node_label=list(telecom_node.labels)[0],
-                            relationship_type="TELECOM_IS")
+                            relationship_type="TELECOM_IS", props={})
 

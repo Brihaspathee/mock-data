@@ -1,18 +1,27 @@
 from neo4j.time import DateType
 from config import settings
 from db import DBUtils
+from models.aton.location import Location
+from models.aton.network import Network
+from models.aton.role_instance import RoleInstance
+from models.aton.role_location import RoleLocation
+from models.aton.role_network import RoleNetwork, AssociatedLocation, RoleLocationServes
+from models.portico import PPProvTinLoc, PPProvLoc
 from models.portico.pp_prov import PPProv
 from models.portico.pp_prov_attrib import PPProvAttrib
 from models.portico.pp_prov_addr import PPProvAddr
 from models.portico.pp_addr import PPAddr
 from models.portico.pp_phones import PPPhones
 from models.portico.pp_addr_phones import PPAddrPhones
-from models.aton import Organization, Identifier, Qualification, Person, Telecom, Address, Contact
+from models.aton import Organization, Identifier, Qualification, Person, Telecom, Address, Contact, role_network
 from aton_writes.service import upsert_organization
 from utils.log_provider import log_provider
+from utils.hash_util import hash_utility
 from typing import cast, Any
 from transform.attribute_transformer import AttributeStructure, Result, build_node_data, get_attribute
 from transform.transformers import transform_to_aton
+from transform.transform_prov_net_cycle import transform_prov_net_cycle
+from repository.location_repo import get_location_by_smarty_key
 import logging
 
 
@@ -52,7 +61,17 @@ def _(provider:PPProv) -> Organization:
         organization.contacts.append(get_contact(address))
         #upsert_organization.create_organization(organization)
         # organizations.append(organization)
+    if provider.prov_locs or provider.networks:
+        transform_prov_net_cycle(provider, organization)
+        for ri in organization.roleInstances:
+            log.info(f"Role Instance:{ri}")
+            for rn1 in ri.roleNetworks:
+                log.info(f"Role Network:{rn1}")
+
     return organization
+
+
+
 
 
 def get_tin(provider: PPProv) -> Identifier:
@@ -178,4 +197,5 @@ def get_phone(pp_addr: PPAddr) -> Telecom:
         elif pp_addr_phone.phone.type == "AFH":
             telecom.after_hours_number = phone_number
     return telecom
+
 
